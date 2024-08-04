@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:41:47 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/04 18:05:50 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/04 22:47:27 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,34 @@ void PhoneBook::add()
 		std::cout << "Enter the first name: ";
 		if (std::getline(std::cin, str) && str != "")
 			this->_contacts[this->_index % 8].setfstn(str);
-
+	}
+	str="";
+	while(!std::cin.eof() && str == "")
+	{
+		std::cout << "Enter the last name: ";
+		if (std::getline(std::cin, str) && str != "")
+			this->_contacts[this->_index % 8].setlstn(str);
+	}
+	str="";
+	while(!std::cin.eof() && str == "")
+	{
+		std::cout << "Enter the nick name: ";
+		if (std::getline(std::cin, str) && str != "")
+			this->_contacts[this->_index % 8].setnkn(str);
+	}
+	str="";
+	while(!std::cin.eof() && str == "")
+	{
+		std::cout << "Enter the phone number: ";
+		if (std::getline(std::cin, str) && str != "")
+			this->_contacts[this->_index % 8].setphone(str);
+	}
+	str="";
+	while(!std::cin.eof() && str == "")
+	{
+		std::cout << "Enter the darkest secret: ";
+		if (std::getline(std::cin, str) && str != "")
+			this->_contacts[this->_index % 8].setsecret(str);
 	}
 	this->_index++;
 }
