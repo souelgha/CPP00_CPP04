@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:19:39 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/04 17:35:18 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:26:36 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int command()
 		if(command.compare("ADD") == 0)
 			newbook.add();
 		else if(command.compare("SEARCH") == 0)
-			std::cout << "SEARCH choisi\n";
+			newbook.DisplayOne(0);
 		else if(command.compare("EXIT") == 0)
 			break;
 		else
@@ -36,8 +36,11 @@ int command()
 	}
 	return (0);
 }
+
 int main()
 {
-	command();
+	PhoneBook newbook;
+	newbook.Displaytest();
+	//command();
 	return(0);
 }
