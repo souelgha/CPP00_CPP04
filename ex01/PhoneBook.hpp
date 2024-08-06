@@ -6,7 +6,7 @@
 /*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:30:33 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/06 18:55:42 by sonia            ###   ########.fr       */
+/*   Updated: 2024/08/06 22:53:17 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class PhoneBook
 		std::string truncated(std::string str);
 		Contact getcontact(int indx);
 };
-
+int check_digits(std::string str);
 #endif
 
 

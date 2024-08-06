@@ -6,7 +6,7 @@
 /*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:19:39 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/06 17:58:39 by sonia            ###   ########.fr       */
+/*   Updated: 2024/08/06 22:58:19 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ int main()
 	PhoneBook newbook;
 	// newbook.Displaycategory();
 	command();
+	//int i=check_digits("1z3");
+	//std::cout << i << std::endl;
 	return(0);
 }

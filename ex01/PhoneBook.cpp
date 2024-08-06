@@ -6,7 +6,7 @@
 /*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:41:47 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/06 19:36:39 by sonia            ###   ########.fr       */
+/*   Updated: 2024/08/06 23:28:40 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ PhoneBook::PhoneBook()
 PhoneBook::~PhoneBook()
 {
 	std::cout << "Thank you and GoodBye" << std::endl;
+}
+int check_digits(std::string str)
+{
+	for(std::string::iterator it=str.begin(); it!=str.end(); ++it)
+	{
+		if (!(std::isdigit(static_cast<unsigned char>(*it))))
+		{
+			std::cout << "Error Phone number: Enter digit between 0 and 9" << std::endl;
+			return(0);
+		}
+	}
+	return(1);
 }
 
 void PhoneBook::add()
@@ -60,8 +72,13 @@ void PhoneBook::add()
 	while(!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter the phone number: ";
-		if (std::getline(std::cin, str) && str != "")
+		if (std::getline(std::cin, str) && str != "" && check_digits(str))
+		{
 			this->_contacts[this->_index % MAXCONT].setphone(str);
+			break;	
+		}
+		else
+			str="";
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
@@ -107,12 +124,12 @@ void PhoneBook::DisplayAll()
 	std::getline(std::cin, str);
 	if (str.length() != 1)
 	{
-		std::cout << "ERROR 22! Enter index between 0 and " << this->_index << std::endl;
+		std::cout << "ERROR! Enter index between 0 and " << this->_index << std::endl;
 		return;
 	}
 	if (!(std::isdigit(static_cast<unsigned char>(str[0]))))
 	{
-		std::cout << "ERROR ! Enter index between 0 and " << this->_index << std::endl;
+		std::cout << "ERROR! Enter index between 0 and " << this->_index << std::endl;
 		return;
 	}
 	int num =stoi(str);
@@ -140,3 +157,4 @@ void PhoneBook::Displaycategory()
 		std::cout << std::endl;
 	}
 }
+
