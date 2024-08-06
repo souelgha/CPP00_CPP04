@@ -3,118 +3,140 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:41:47 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/05 18:51:04 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/06 19:36:39 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include"PhoneBook.hpp"
-
 
 PhoneBook::PhoneBook()
 {
 	this-> _index = 0;
 }
-
 PhoneBook::~PhoneBook()
 {
 	std::cout << "Thank you and GoodBye" << std::endl;
 }
+
 void PhoneBook::add()
 {
 	std::string str;
-
 	str="";
-	std::cout <<" le nombre maximum de contact autorise est 8" << std::endl;
-	if(this->_index > 7)
-		std::cout << "Warning : nb contact > 8" << std::endl;
+	std::cout <<" Warning : max contact allows is " << MAXCONT << std::endl;
+	if (this->_index > MAXCONT - 1)
+	{
+		std::string answer;
+		std::cout << "Warning: nb contact > " << MAXCONT << std::endl;
+		std::cout << "if you confirm, the oldest contact will be deleted\n";
+		std::cout << "please confirm : yes/no"<< std::endl;
+		std::getline(std::cin, answer);
+		if(answer.compare("yes") != 0)
+			return;
+	}
 	while(!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter the first name: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % 8].setfstn(str);
+			this->_contacts[this->_index % MAXCONT].setfstn(str);
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
 	{
-		std::cout << "Enter the last name: ";
+		std::cout << "Enter the last name: "; 
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % 8].setlstn(str);
+			this->_contacts[this->_index % MAXCONT].setlstn(str);
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter the nick name: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % 8].setnkn(str);
+			this->_contacts[this->_index % MAXCONT].setnkn(str);
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter the phone number: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % 8].setphone(str);
+			this->_contacts[this->_index % MAXCONT].setphone(str);
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter the darkest secret: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % 8].setsecret(str);
+			this->_contacts[this->_index % MAXCONT].setsecret(str);
 	}
 	this->_index++;
 }
-
-void PhoneBook::search()
+std::string PhoneBook::truncated(std::string str)
 {
-	
+	if(str.length() > 10)
+	{
+		str=str.substr(0,9);
+		str += '.';
+	}
+	return (str);
 }
 Contact	PhoneBook::getcontact(int index)
 {
-	return (this->_contacts[index % 8]);
+	return (this->_contacts[index % MAXCONT]);
 }
-
 void PhoneBook::DisplayOne(int index)
 {
-	if (index < 0)
+	std::cout << "first name:\t" << this->_contacts[index].getfstn() << std::endl;
+	std::cout << "last name:\t" << this->_contacts[index].getlstn() << std::endl ;
+	std::cout << "nick name:\t" << this->_contacts[index].getnkn() << std::endl;
+	std::cout << "phone number:\t"  << this->_contacts[index].getphone() << std::endl;
+	std::cout << "darkest secret:\t" << this->_contacts[index].getsecret() << std::endl;	
+}
+
+void PhoneBook::DisplayAll()
+{
+	if(this->_index == 0)
 	{
-		std::cout << "error_no contact\n" << std::endl;
+		std::cout << "Phonebook is empty. Add contact first"<< std::endl;
 		return;
 	}
-	std::cout << "Index " << this->_index % 8 - 1;
-	std::cout << "First Name: " << this->_contacts[index].getfstn() ;
-	std::cout << "Last Name: " << this->_contacts[index].getlstn() ;
-	std::cout << "Nick Name: " << this->_contacts[index].getlstn() ;
-	
+	PhoneBook::Displaycategory();	
+	std::string str;
+	std::cout << "Enter requested index: ";
+	std::getline(std::cin, str);
+	if (str.length() != 1)
+	{
+		std::cout << "ERROR 22! Enter index between 0 and " << this->_index << std::endl;
+		return;
+	}
+	if (!(std::isdigit(static_cast<unsigned char>(str[0]))))
+	{
+		std::cout << "ERROR ! Enter index between 0 and " << this->_index << std::endl;
+		return;
+	}
+	int num =stoi(str);
+	if (num < 0 || num >= MAXCONT)
+	{
+		std::cout << "ERROR_no contact_retry: Enter index between 0 and " << this->_index << std::endl;
+		return;
+	}
+	PhoneBook::DisplayOne(num);
 }
-void PhoneBook::DisplayAll(Contact contact)
+
+/****** realisation des colonnes ******/
+void PhoneBook::Displaycategory()
 {
-	std::cout << std::right << std::setw(10) << std::setfill(' ') << "Index:"<< " |";
-	std::cout << "Index: " << this->_index % 8 - 1;
-	std::cout << "First Name: " << this->_contacts[_index % 8].getfstn() ;
-	std::cout << "Last Name: " << this->_contacts[_index % 8].getlstn() ;
-	std::cout << "Nick Name: " << this->_contacts[_index % 8].getlstn() ;
-
-
-
-	std::cout << "Index: " << this->_index % 8 - 1;
-	std::cout << "First Name: " << this->_contacts[_index % 8].getfstn();
-	std::cout << "Last Name: " << this->_contacts[_index % 8].getlstn();
-	std::cout << "Nick Name: " << this->_contacts[_index % 8].getlstn() ;
-}
-/**** realisation des colonnes ******/
-void PhoneBook::Displaytest()
-{
-	std::cout << std::right << std::setw(11) << std::setfill(' ') << "Index" << "|";
-	std::cout << std::right << std::setw(11) << std::setfill(' ') << "First Name" << "|";
-	std::cout << std::right << std::setw(11) << std::setfill(' ') << "Last Name" << "|";
-	std::cout << std::right << std::setw(11) << std::setfill(' ') << "nicky444tttyyName" << "|" << std::endl;
-
-	std::cout << std::right << std::setw(11) << "Index" << "|";
-	std::cout << std::right << std::setw(11) << "First Name" << "|";
-	std::cout << std::right << std::setw(11) << "Last Name" << "|";
-	std::cout << std::right << std::setw(11) << "ni444ckytttyyName" << "|" << std::endl;
+	std::cout << "|" << std::right << std::setw(W)  << "Index" << "|";
+	std::cout << std::right << std::setw(W) << "First Name" << "|";
+	std::cout << std::right << std::setw(W) << "Last Name" << "|";
+	std::cout << std::right << std::setw(W) << "nick Name" << "|" << std::endl;	
+	for(int i = 0; i < MAXCONT; i++)
+	{
+		std::cout << "|" << std::right << std::setw(W) <<  i << "|";
+		std::cout << std::right << std::setw(W) << truncated(this->_contacts[i].getfstn()) << "|";
+		std::cout << std::right << std::setw(W) << truncated(this->_contacts[i].getlstn()) << "|";
+		std::cout << std::right << std::setw(W) << truncated(this->_contacts[i].getnkn())  << "|";
+		std::cout << std::endl;
+	}
 }

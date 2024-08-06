@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:41:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/04 17:16:08 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:18:31 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Contact::Contact()
 }
 Contact::~Contact()
 {
-	std::cout << "destruction des contacts" << std::endl;
+	// std::cout << "destruction des contacts" << std::endl;
 }
 void Contact::Display()
 {

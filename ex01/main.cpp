@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:19:39 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/05 17:26:36 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/06 17:58:39 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,20 @@ int command()
 	std::string command;
 	while (1)
 	{ 
-		std::cout << "entrer une commande :" ;
-		std::cout << "ADD => ajout d un nouveau contact, ";
-		std::cout << "SEARCH => rechercher un contact, ";
-		std::cout << "EXIT => quitter le repertoire." << std::endl;
+		std::cout << "Enter an option: " ;
+		std::cout << "ADD => add new contact, ";
+		std::cout << "SEARCH => search contact, ";
+		std::cout << "EXIT => quit the prog." << std::endl;
 		if (!(std::getline(std::cin, command)))
 			return (1);	
 		if(command.compare("ADD") == 0)
 			newbook.add();
 		else if(command.compare("SEARCH") == 0)
-			newbook.DisplayOne(0);
+			newbook.DisplayAll();
 		else if(command.compare("EXIT") == 0)
 			break;
 		else
-			std::cout << "\nle choix ne correspond pas a aucune option. veuillez recommencer\n"<< std::endl;
-			
+			std::cout << "\nERROR:Invalid option. Retry"<< std::endl;	
 	}
 	return (0);
 }
@@ -40,7 +39,7 @@ int command()
 int main()
 {
 	PhoneBook newbook;
-	newbook.Displaytest();
-	//command();
+	// newbook.Displaycategory();
+	command();
 	return(0);
 }

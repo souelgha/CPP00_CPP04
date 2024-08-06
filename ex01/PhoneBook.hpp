@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:30:33 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/05 17:28:06 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/06 18:55:42 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,23 @@
 #include<string>
 #include "Contact.hpp"
 
+#define W  10
+#define MAXCONT 2
+
 class PhoneBook
 {
 	private:
-		Contact _contacts[8];
+		Contact _contacts[MAXCONT];
 		int		_index;
+
 	public:
 		PhoneBook();
 		~PhoneBook();
 		void add();
-		void search();
 		void DisplayOne(int index);
-		void DisplayAll(Contact contacts);
-		void Displaytest();
+		void DisplayAll();
+		void Displaycategory();
+		std::string truncated(std::string str);
 		Contact getcontact(int indx);
 };
 
