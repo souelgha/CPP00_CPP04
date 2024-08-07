@@ -1,0 +1,16 @@
+ex02
+
+nb de compte = 8;
+on cree le client qu on enregistre avec l index.
+index => correspond au client 
+amount : c est le montant inital verse. 
+une foic cette info recu, on valide la creation du client "created"
+
+quand tout le monde est cree :
+	affiche le nombre tot de client : accounts 8
+	affiche le total des depots initiaux"amount": total
+	initialise deposits : 0 
+	initialise withdrawals:0
+
+ensuite, il reaffiche les info en incluant toutes ces donnees pour chaque index
+	index:0;amount:42;deposits:0;withdrawals:0
