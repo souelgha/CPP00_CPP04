@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:41:47 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/06 23:28:40 by sonia            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:25:18 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"PhoneBook.hpp"
+
+int check_digits(std::string str);
+std::string trim(const std::string str);
 
 PhoneBook::PhoneBook()
 {
@@ -18,19 +21,7 @@ PhoneBook::PhoneBook()
 }
 PhoneBook::~PhoneBook()
 {
-	std::cout << "Thank you and GoodBye" << std::endl;
-}
-int check_digits(std::string str)
-{
-	for(std::string::iterator it=str.begin(); it!=str.end(); ++it)
-	{
-		if (!(std::isdigit(static_cast<unsigned char>(*it))))
-		{
-			std::cout << "Error Phone number: Enter digit between 0 and 9" << std::endl;
-			return(0);
-		}
-	}
-	return(1);
+	std::cout << "\nThank you and GoodBye" << std::endl;
 }
 
 void PhoneBook::add()
@@ -52,21 +43,21 @@ void PhoneBook::add()
 	{
 		std::cout << "Enter the first name: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % MAXCONT].setfstn(str);
+			this->_contacts[this->_index % MAXCONT].setfstn(trim(str));
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter the last name: "; 
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % MAXCONT].setlstn(str);
+			this->_contacts[this->_index % MAXCONT].setlstn(trim(str));
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
 	{
 		std::cout << "Enter the nick name: ";
 		if (std::getline(std::cin, str) && str != "")
-			this->_contacts[this->_index % MAXCONT].setnkn(str);
+			this->_contacts[this->_index % MAXCONT].setnkn(trim(str));
 	}
 	str="";
 	while(!std::cin.eof() && str == "")
@@ -87,17 +78,10 @@ void PhoneBook::add()
 		if (std::getline(std::cin, str) && str != "")
 			this->_contacts[this->_index % MAXCONT].setsecret(str);
 	}
+	std::cout << "\nContact added!\n" << std::endl;
 	this->_index++;
 }
-std::string PhoneBook::truncated(std::string str)
-{
-	if(str.length() > 10)
-	{
-		str=str.substr(0,9);
-		str += '.';
-	}
-	return (str);
-}
+
 Contact	PhoneBook::getcontact(int index)
 {
 	return (this->_contacts[index % MAXCONT]);
@@ -111,7 +95,7 @@ void PhoneBook::DisplayOne(int index)
 	std::cout << "darkest secret:\t" << this->_contacts[index].getsecret() << std::endl;	
 }
 
-void PhoneBook::DisplayAll()
+void PhoneBook::Search()
 {
 	if(this->_index == 0)
 	{
@@ -122,20 +106,21 @@ void PhoneBook::DisplayAll()
 	std::string str;
 	std::cout << "Enter requested index: ";
 	std::getline(std::cin, str);
+	int lim = (this->_index > MAXCONT) ? MAXCONT : this->_index;
 	if (str.length() != 1)
 	{
-		std::cout << "ERROR! Enter index between 0 and " << this->_index << std::endl;
+		std::cout << "ERROR! Enter index between 0 and " << lim - 1<< std::endl;
 		return;
 	}
 	if (!(std::isdigit(static_cast<unsigned char>(str[0]))))
 	{
-		std::cout << "ERROR! Enter index between 0 and " << this->_index << std::endl;
+		std::cout << "ERROR! Enter index between 0 and " << lim - 1<< std::endl;
 		return;
 	}
 	int num =stoi(str);
-	if (num < 0 || num >= MAXCONT)
+	if (num < 0 || num >= lim)
 	{
-		std::cout << "ERROR_no contact_retry: Enter index between 0 and " << this->_index << std::endl;
+		std::cout << "ERROR_NO CONTACT: Enter index between 0 and " << lim - 1 << std::endl;
 		return;
 	}
 	PhoneBook::DisplayOne(num);
@@ -148,7 +133,9 @@ void PhoneBook::Displaycategory()
 	std::cout << std::right << std::setw(W) << "First Name" << "|";
 	std::cout << std::right << std::setw(W) << "Last Name" << "|";
 	std::cout << std::right << std::setw(W) << "nick Name" << "|" << std::endl;	
-	for(int i = 0; i < MAXCONT; i++)
+	
+	int lim = (this->_index > MAXCONT) ? MAXCONT : this->_index;
+	for(int i = 0; i < lim; i++)
 	{
 		std::cout << "|" << std::right << std::setw(W) <<  i << "|";
 		std::cout << std::right << std::setw(W) << truncated(this->_contacts[i].getfstn()) << "|";
@@ -157,4 +144,42 @@ void PhoneBook::Displaycategory()
 		std::cout << std::endl;
 	}
 }
+int check_digits(std::string str)
+{
+	for(std::string::iterator it=str.begin(); it!=str.end(); ++it)
+	{
+		if (!(std::isdigit(static_cast<unsigned char>(*it))))
+		{
+			std::cout << "Error Phone number: Enter digit between 0 and 9" << std::endl;
+			return(0);
+		}
+	}
+	return(1);
+}
 
+/**** gestion des isspaces dans les entrees
+ ***** utilisation de find et npos  
+****** npos est vrai si toute la str est vide (conditions find_first_not_of ())
+ */
+std::string trim(const std::string str)
+{
+	std::string nospace;
+	std::string whitespaces (" \t\f\v\n\r");
+	size_t start = str.find_first_not_of(whitespaces);
+	if(start == std::string::npos) 
+		return(""); 
+	nospace = str.substr(start);
+	size_t end = nospace.find_last_not_of(whitespaces);		
+	if( end != std::string::npos)
+		nospace = nospace.substr(0, end + 1);
+	return(nospace);
+}
+std::string PhoneBook::truncated(std::string str)
+{
+	if(str.length() > 10)
+	{
+		str.resize(9);
+		str.resize(10,'.');
+	}
+	return (str);
+}

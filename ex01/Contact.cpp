@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:41:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/06 14:18:31 by sonia            ###   ########.fr       */
+/*   Updated: 2024/08/07 17:10:54 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ Contact::Contact()
 }
 Contact::~Contact()
 {
-	// std::cout << "destruction des contacts" << std::endl;
-}
-void Contact::Display()
-{
-	std::cout << "Felicitations ! Votre contact est cree!" << std::endl;
+	 std::cout << "destruction des contacts" << std::endl;
 }
 std::string Contact:: getfstn()   ///lire la variable 
 {

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:37:28 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/04 17:15:52 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/07 16:56:42 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class Contact
 			std::string _darkestsecret;
 
 	public:
-			Contact(); 
+			Contact();
+			~Contact();
 			std::string getfstn();
 			std::string getlstn();
 			std::string getnkn();
@@ -38,8 +39,7 @@ class Contact
 			void setnkn(std::string str);
 			void setphone(std::string str);
 			void setsecret(std::string str);
-			void Display();
-			~Contact();
+			
 };
 
 
