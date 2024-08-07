@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/03 15:30:46 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/08/07 17:46:35 by sonouelg         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include<iostream>
-#include<cstring>
+#include<string>
 
 int main(int argc, char **argv) 
 {
@@ -9,12 +21,14 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	int i;
-	size_t j;
+	//size_t j;
+	
 	for(i = 1; i < argc; i++)
 	{
-			for(j=0; j< strlen(argv[i]); j++)
+			std::string str = argv[i];
+			for (std::string::iterator it=str.begin(); it!=str.end(); ++it)
 			{
-				char ch =toupper(argv[i][j]);
+				char ch =toupper(*it);
 				std::cout << ch;
 			}
 	}
