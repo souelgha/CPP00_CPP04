@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:38:48 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/08 15:30:01 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/08 18:01:32 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ Account::Account(void)
 
 Account::Account( int initial_deposit )
 {
+	std::string str;
+	std::cout << "entrer l index du compte:" << std::endl;
+	std::getline(std::cin, str);
 }
 
 Account::~Account( void )
