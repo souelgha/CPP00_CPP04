@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 15:37:28 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/07 16:56:42 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/08/19 15:48:20 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include<iostream>
 #include<string>
-#include"utils.hpp"
 
 class Contact
 {
