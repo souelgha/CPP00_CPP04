@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 13:03:59 by sonia             #+#    #+#             */
-/*   Updated: 2024/08/21 19:26:49 by sonia            ###   ########.fr       */
+/*   Updated: 2024/08/28 17:27:16 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
 	std::cout << "========== heap zombie ==========" << std::endl;
 	Zombie *Deathh = new Zombie("boooo");
-	Zombie *Dth = new Zombie("");
+	Zombie *Dth = new Zombie("hello");
 	Deathh->announce();
 	Dth->announce();
 	delete Deathh;
@@ -24,7 +24,7 @@ int main()
 	
 	std::cout <<"\n" << "========== stack zombie ==========" << std::endl;
 	randomChump("wolllff");
-	randomChump("");
+	randomChump("Hola");
 
 
 	return(0);

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 18:20:39 by sonia             #+#    #+#             */
-/*   Updated: 2024/08/28 17:22:22 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/09/02 15:08:12 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/09/02 16:37:14 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include"HumanA.hpp"
+
+HumanA::HumanA(std::string nom, Weapon& arm):type(arm), name(nom){}
+
+HumanA::~HumanA(){}
 
 
-Zombie* ZombieHorde(int N, std::string name)
+void HumanA::attack() const
 {
-	Zombie* horde  = new Zombie[N];
-
-	for(int i = 0; i < N; i++)
-	{
-		std::string zombiname = name;
-		horde[i]=Zombie(zombiname);
-	}	
-	return(horde);
+	std::cout << name << " attacks with their "<< type.getType() << std::endl;
 }
