@@ -6,72 +6,66 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:03:11 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/04 17:56:52 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/05 11:45:52 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<iostream>
 #include<fstream>
+#include<sstream>
+
+std::string replacestring(std::string s, std::string str1, std::string str2)
+{
+	size_t pos=0;
+	while((pos = s.find(str1, pos)) != std::string::npos)
+	{
+		s.erase(pos,str1.length());
+		s.insert(pos,str2);	
+		pos += str2.length();
+	}
+	return(s);	
+}
 
 int main(int argc, char **argv)
 {
 	(void)argc;
-	if(argc == 1)
+	if(argc != 4)
+	{
+		std::cout << "le nombre d arguments n est pas bon" << std::endl;
 	 	return(1);
-	
+	}
 	std::string srcfile= argv[1];
 	std::string suffixe =".replace";
 	std::string destfile= argv[1] + suffixe;
-	std::cout << destfile << srcfile<< std::endl;
-	std::string str1="est a 42"; //argv[2]
-	std::string str2="vit a Paris"; //argv[3]
-	std::string s="coucou on est a 42 aujourd hui. et toi ?";
+	std::string str1=argv[2];
+	std::string str2=argv[3];
 
-/********* copie du contenu dans le fichier replace ********************/
-	std::ifstream source(srcfile.c_str(), std::ios::binary);
-	std::ofstream dest(destfile.c_str(), std::ios::binary);
-	if(!source || !dest)
+
+/********* copie du contenu source dans une string ********************/
+	std::ifstream source(srcfile.c_str());
+	if(!source)
 	{
-		std::cerr << "file n existe pas" << std::endl;
+		std::cout << "le fichier source n existe pas " << std::endl;
 		return(1);
 	}
-	else
+
+	std::string fileContent((std::istreambuf_iterator<char>(source)), std::istreambuf_iterator<char>());
+    source.close();
+	if(fileContent=="")
 	{
-		std::cout << "files crees" << std::endl;
-		dest << source.rdbuf();
+		std::cout << "le fichier est vide" << std::endl;
+		return(1);
 	}
-
-/********** remplacer le contenu dans le fichier *****************/
-	std::string::size_type n;
-	n =s.find(str1);
-	std::string last= s.substr(n);
-	s.erase(n,str1.length());	
-	std::cout << "_string1: '" << s << std::endl;					//delete une partie de la string	
-	s.insert(n,str2);				//insert la str2 dans a a la position n	
-	std::cout << "_string2: '" << s << std::endl;
-
-	return(0);
-	
+	std::string finalVersion= replacestring(fileContent, str1, str2);
+	if(finalVersion.compare(fileContent) == 0)
+	{
+		std::cout << "pas d occurence trouvee. fichier replace non cree" << std::endl;
+		return(1);
+	}
+	std::ofstream dest(destfile.c_str());
+	if(!dest)
+		std::cout << "impossible d ecrire dans le fichier de destination " << std::endl;	
+	dest << finalVersion;	
+	dest.close();
+	return(0);	
 }
-
-
-
-
-/*****afficher le contenu du fichier ******/
-	// while(1)
-	// {
-	// 	orig_file >> ch;
-	// 	if (orig_file.eof())
-	// 		break;
-	// 	std::cout << ch ;
-	// }
-/** attention a bien gerer les espaceslor de l affichage .il ne sont pas prsents ici dans l exemple */
-/*** creer la fonction replace  */
-/** trouver la position du debut de la string : n***/
-/*** calculer la longueur de la string a remplacer str1*/
-/*** calculer la longueur de la nouvelle string str2 */
-
-// std::string string_replace(std::string str1, std::string str2)
-// {
-
-// }
