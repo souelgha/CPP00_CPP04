@@ -1,5 +1,5 @@
 NAME=fight
-CFLAGS=-std=c++98 -Wall -Wextra -Werror
+CFLAGS=-std=c++98 -Wall -Wextra -Werror -g3
 
 SRCS= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
