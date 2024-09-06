@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:53:06 by sonia             #+#    #+#             */
-/*   Updated: 2024/08/21 18:49:57 by sonia            ###   ########.fr       */
+/*   Updated: 2024/09/06 11:33:07 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ Zombie::~Zombie()
 }
 void Zombie::announce(void)
 {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << YELLOW << this->_name << ": BraiiiiiiinnnzzzZ..." << DEFAULT << std::endl;
 }

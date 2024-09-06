@@ -1,5 +1,5 @@
 NAME = cerveau
-CFLAGS = -std=c++98 -Wall -Wextra -Werror
+CFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 
 SRC = main.cpp
 

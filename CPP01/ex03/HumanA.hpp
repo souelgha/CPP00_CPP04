@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:56:37 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/02 16:20:17 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/06 11:54:26 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class HumanA
 	public:
 		HumanA(std::string nom, Weapon& arm);
 		~HumanA();
-	void attack() const;
+		void attack() const;
 };
 
 #endif
