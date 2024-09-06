@@ -5,26 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/05 13:11:06 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/06 11:05:09 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/09/06 09:58:54 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/09/06 11:09:10 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Harl.hpp"
 
-int main(void)
+int main(int argc, char **argv)
 {
-	Harl alarm;
-	std::string level;
-	std::cout << MAGENTA << " quel est le level de Harl ? \n" ;
-	std::cout << "DEBUG ? INFO ? WARNING ? ou ERROR ? " << DEFAULT << std::endl;
-	std::cin >> level;
-	if (level != "DEBUG" && level != "WARNING" && level != "INFO" && level != "ERROR")
+	if(argc != 2)
 	{
-		std::cerr << "\n" << RED << "aucun niveau ne correspond a votre entree" << DEFAULT << std::endl;
+		std::cerr << "\n" << RED << " nbre d arguments invalide" << DEFAULT << std::endl;
 		return(1);
 	}
+	Harl urgence;
 	std::cout << "\n";
-	alarm.complain(level);
-	return(0);
+	urgence.complain(argv[1]);
+	return (0);
 }
