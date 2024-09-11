@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 13:54:49 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/11 17:04:22 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/09/11 16:54:50 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/09/11 18:13:17 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,17 @@ std::ostream& operator<<(std::ostream& os, const Fixed& a)
 int main(void)
 {
 	Fixed a;
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
-	
-	a = Fixed(1234.4321f);
-	
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	// Fixed const b(Fixed(5.05f) * Fixed(2));
 
-	std::cout << "a is " << a.toInt() << " as integrer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integrer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integrer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integrer" << std::endl;
-	
+	std::cout << "a is " << a << std::endl;
+	std::cout << "++a is " << ++a << std::endl;
+	std::cout << "a is " << a << std::endl;
+	std::cout << "a++ is " << a++ << std::endl;
+	std::cout << "a is " << a << std::endl;
+
+	// std::cout << "b is " << b << std::endl;
+
+	// std::cout << "Fixedmax(a,b) " << Fixed::max(a,b) << std::endl;
+		
 	return (0);
 }
