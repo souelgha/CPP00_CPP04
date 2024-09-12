@@ -6,11 +6,9 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:54:33 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/11 18:29:29 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/12 17:44:41 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #ifndef FIXED_H
 	#define FIXED_H
@@ -35,22 +33,29 @@ class Fixed
 		int toInt(void) const;		
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
-		// Fixed& operator>(const Fixed& other);
-		// Fixed& operator<(const Fixed& other);
-		// Fixed& operator>=(const Fixed& other);
-		// Fixed& operator<=(const Fixed& other);
-		// Fixed& operator==(const Fixed& other);
-		// Fixed& operator!=(const Fixed& other);
-		// Fixed& operator+(const Fixed& other);
-		// Fixed& operator-(const Fixed& other);
-		// Fixed& operator*(const Fixed& other);
-		// Fixed& operator/(const Fixed& other);
-		Fixed& operator++();
-		Fixed& operator++(int);
-		// Fixed& operator--();
-		// Fixed& operator--(int);
-};
-std::ostream& operator<<(std::ostream& os, const Fixed& a);
 
+		bool operator>(const Fixed& other);
+		bool operator<(const Fixed& other);
+		bool operator>=(const Fixed& other);
+		bool operator<=(const Fixed& other);
+		bool operator==(const Fixed& other);
+		bool operator!=(const Fixed& other);
+		
+		Fixed operator+(const Fixed& other);
+		Fixed operator-(const Fixed& other);
+		Fixed operator*(const Fixed& other);
+		Fixed operator/(const Fixed& other);
+		
+		Fixed& operator++();
+		Fixed operator++(int);
+		Fixed& operator--();
+		Fixed operator--(int);
+		static const Fixed&  min(const Fixed& a, const Fixed& b);
+		static Fixed&  min(Fixed& a, Fixed& b);
+		static const Fixed& max(const Fixed& a, const Fixed& b);
+		static Fixed&  max(Fixed& a, Fixed& b);
+};
+
+std::ostream& operator<<(std::ostream& os, const Fixed& a);
 
 #endif
