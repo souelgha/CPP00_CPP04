@@ -6,17 +6,13 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 13:54:49 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/11 17:04:22 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/13 10:18:30 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-std::ostream& operator<<(std::ostream& os, const Fixed& a)
-{
-	os << a.toFloat();
-	return(os);
-}
+
 
 int main(void)
 {

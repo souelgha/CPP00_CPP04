@@ -1,8 +1,8 @@
-NAME=Fixed2
+NAME= bsp
 CXXFLAGS= -std=c++98 -Wall -Wextra -Werror -g3
 CC= c++
 
-SRC= main.cpp Fixed.cpp
+SRC= main.cpp Fixed.cpp Point.cpp bsp.cpp
 
 OBJ=$(SRC:.cpp=.o)
 

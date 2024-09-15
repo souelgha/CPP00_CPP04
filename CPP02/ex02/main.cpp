@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:54:50 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/12 18:12:22 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/13 10:28:40 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void OpeMaxMin()
 	std::cout << "max(a,b)" << Fixed::max(a,b) << std::endl;
 	std::cout << "min(a,b)"  << Fixed::min(a,b) << std::endl;
 	std::cout << "min(d,f)"  << Fixed::min(d,f) << std::endl;
+	std::cout << "min(e,f)"  << Fixed::min(e,f) << std::endl;
 }
 
 int main(void)
