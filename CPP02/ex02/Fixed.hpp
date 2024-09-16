@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:54:33 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/12 17:44:41 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/16 17:27:09 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 #include<iostream>
 #include<string>
 #include<cmath>
+
+#define RED "\033[0;31m"
+#define GREEN "\033[0;32m"
+#define YELLOW "\033[0;33m"
+#define BLUE "\033[0;34m"
+#define MAG "\033[0;35m"
+#define CYAN "\033[0;36m"
+#define WHITE "\033[1;37m"
+
 class Fixed
 {
 	private:

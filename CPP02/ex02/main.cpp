@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:54:50 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/13 10:28:40 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/16 17:29:15 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void incrementFct (void)
 {
+	std::cout << GREEN << "/***** operations d incrementations *****/" << std::endl;
 	Fixed a;
 
 	std::cout << "a is " << a << std::endl;
@@ -28,10 +29,12 @@ void incrementFct (void)
 	std::cout << "a is " << a << std::endl;
 	std::cout << "--a is " << --a << std::endl;
 	std::cout << "a is " << a << std::endl;
+	std::cout << WHITE  << std::endl;
 }
 
 void OpeArithmetic()
 {
+	std::cout << MAG << "/***** operations arithmetiques *****/" << std::endl;
 	Fixed a (20);
 	Fixed c(2.02f);
 	Fixed d(c);	
@@ -59,9 +62,11 @@ void OpeArithmetic()
 	std::cout << "c * a / e : " << c * a / e << std::endl;
 	std::cout << "c * a + e : " << c * a + e << std::endl;
 	std::cout << "c *( a + e) : " << c * (a + e) << std::endl;
+	std::cout << WHITE  << std::endl;
 }
 void OpeCompar()
 {
+	std::cout << CYAN << "/***** operations de comparaison *****/" << std::endl;
 	Fixed a (10);
 	Fixed c(2.02f);
 	Fixed d(c);	
@@ -90,9 +95,11 @@ void OpeCompar()
 	std::cout << " c <= d ?: " << c.operator<=(d)<< std::endl;
 	std::cout << " c >= d ?: " << c.operator>=(d)<< std::endl;
 	std::cout << " c != d ?: " << c.operator!=(d)<< std::endl;
+	std::cout << WHITE  << std::endl;
 }
 void OpeMaxMin()
 {
+	std::cout << YELLOW << "/***** operations min / max*****/" << std::endl;
 	Fixed a (10);
 	Fixed c(2.02f);
 	Fixed d(c);	
@@ -107,18 +114,20 @@ void OpeMaxMin()
 	std::cout << "e:\t " << e << std::endl;
 	std::cout << "f:\t " << f << std::endl;
 
-	std::cout << "max(c,d)" << Fixed::max(c,d) << std::endl;
-	std::cout << "max(a,b)" << Fixed::max(a,b) << std::endl;
-	std::cout << "min(a,b)"  << Fixed::min(a,b) << std::endl;
-	std::cout << "min(d,f)"  << Fixed::min(d,f) << std::endl;
-	std::cout << "min(e,f)"  << Fixed::min(e,f) << std::endl;
+	std::cout << "max(c,d) :" << Fixed::max(c,d) << std::endl;
+	std::cout << "max(a,b) :" << Fixed::max(a,b) << std::endl;
+	std::cout << "min(a,b) :"  << Fixed::min(a,b) << std::endl;
+	std::cout << "min(d,f) :"  << Fixed::min(d,f) << std::endl;
+	std::cout << "min(e,f) :"  << Fixed::min(e,f) << std::endl;
+	std::cout << WHITE  << std::endl;
 }
 
 int main(void)
 {
-	//OpeArithmetic();
-	// OpeCompar();
-	//incrementFct();
+	
+	OpeArithmetic();
+	OpeCompar();
+	incrementFct();
 	OpeMaxMin();
 		
 	return (0);
