@@ -6,18 +6,19 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:54:38 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/15 16:23:09 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:47:50 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Point.hpp"
 
+bool OneAllSegment(Point const a, Point const b, Point const c, Point const point);
 Fixed AreaTriangleF(const Point& a, const Point& b, const Point& c) 
 {
 	Fixed z(0.5f);
 	Fixed const s(-1.0f);
 	Fixed area;
-	area = z * (a.getPointx() * (b.getPointy() - c.getPointy()) 
+	area = z*(a.getPointx() * (b.getPointy() - c.getPointy()) 
 			  + b.getPointx() * (c.getPointy() - a.getPointy()) 
 			  + c.getPointx() * (a.getPointy() - b.getPointy()));
 	if (area < 0)
@@ -40,22 +41,52 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
 	if (check_posSommet(a, b, c, point))
 	{
-		std::cout << "ici"<< std::endl;
+		std::cout << "point sur un sommet"<< std::endl;
 		return(false);
 	}
+	else if (OneAllSegment(a,b,c,point))
+	{
+		std::cout << "point sur un segment"<< std::endl;
+		return(false);
+	}	
 	Fixed air_tri = AreaTriangleF(a, b, c);
-	std::cout << "aire du triangle = " << air_tri << std::endl;
 	Fixed air_p1 = AreaTriangleF(a, b, point);
-	std::cout << "aire_abp du triangle = " << air_p1 << std::endl;
 	Fixed air_p2 = AreaTriangleF(a, c, point);
-	std::cout << "aire_acp du triangle = " << air_p2 << std::endl;
 	Fixed air_p3 = AreaTriangleF(b, c, point);
-	std::cout << "aire_bcp du triangle = " << air_p3 << std::endl;
+	Fixed all = air_p1 + air_p2 + air_p3;
+	Fixed tolerance(0.01f); 
+	if (air_tri - all < 0)
+		return(all - air_tri < tolerance);
+	return (air_tri - all < tolerance);
+}
 
-	Fixed const all = air_p1 + air_p2 + air_p3;
-	std::cout << "all: " << all << "\ttri: " << air_tri << std::endl;
-	if (air_tri.operator==(all))
+Fixed PenteSegment(const Point& a, const Point& b)
+{
+	Fixed pente;
+	pente = (b.getPointy() - a.getPointy()) / (b.getPointx() - a.getPointx());
+	return(pente);
+}
+Fixed OriginSegment(const Point& a, Fixed pente)
+{
+	Fixed origin;
+	origin = a.getPointy() - (pente.operator*(a.getPointx()));
+	return(origin);
+}
+bool OnSegment(const Point& a, const Point& b, const Point& point)
+{
+	Fixed Origin, r;
+	Fixed pente= PenteSegment(a, b);
+	if(pente.operator!=(0))
+		Origin = OriginSegment(a, pente); 
+	else
+		Origin =a.getPointy();
+	return (point.getPointy().operator==((pente.operator*(point.getPointx())) + Origin));
+}
+
+bool OneAllSegment(Point const a, Point const b, Point const c, Point const point)
+{
+	if(OnSegment(a,b,point) || OnSegment(a,c,point) || OnSegment(b,c,point))
 		return(true);
-	else 
-		return(false);	
+	else
+		return(false);
 }
