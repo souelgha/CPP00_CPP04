@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 13:54:38 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/16 16:47:50 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/17 10:09:16 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,13 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	Fixed air_p3 = AreaTriangleF(b, c, point);
 	Fixed all = air_p1 + air_p2 + air_p3;
 	Fixed tolerance(0.01f); 
-	if (air_tri - all < 0)
-		return(all - air_tri < tolerance);
-	return (air_tri - all < tolerance);
+	Fixed result = air_tri - all;
+	if (result < 0)
+		result = all - air_tri;
+	if( result < tolerance)
+		return(true);
+	else
+		return(false);
 }
 
 Fixed PenteSegment(const Point& a, const Point& b)
