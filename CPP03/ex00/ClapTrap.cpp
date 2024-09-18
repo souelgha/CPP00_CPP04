@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:37:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/17 16:44:43 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/18 17:26:46 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ unsigned int ClapTrap::getAttack(void)
 }
 void ClapTrap::attack(const std::string& target)
 {
-	if(this->Hit == 0)
+	if(this->Hit == 0 || this->Energy == 0)
 		std::cout << "Claptrap " << Name << " is already dead. No attack possible" << std::endl;
 	std::cout << "ClapTrap " << Name << " attacks Claptrap" << target;
 	std::cout << " causing " << this->Attack << " points of damage !"<< std::endl;
@@ -87,14 +87,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << Name << "is damaged and dead. No more Hit point" << std::endl;
 		return;
 	}	
-	
 	Hit -= amount;
-	Energy -= 1;
-	Attack += amount;
+	Energy --;
 	std::cout << this->Name << " take damage of [" << amount << "] points." ;
 	std::cout << " Hit [" << this->Hit << "]" ;
-	std::cout << " Energy [" << this->Energy << "]";
-	std::cout << " Attack [" << this->Attack << "]" << std::endl;
+	std::cout << " Energy [" << this->Energy << "]" << std::endl;
 
 }
 void ClapTrap::beRepaired(unsigned int amount)
@@ -104,18 +101,18 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "Claptrap " << Name << " is already dead. Stop here" << std::endl;
 		return;
 	}
-	if(this->Energy > 0)
+	if (this->Energy == 0)
+		std::cout << this->Name << " have no enough points to repair! " << std::endl;
+	else
 	{
 		Hit += amount;
 		Energy -= 1;
 		std::cout << this->Name << " repaired itself using [" << amount << "] points.";
 		std::cout << " Hit [" << this->Hit << "]" ;
-		std::cout << " Energy [" << this->Energy << "]";
-		std::cout << " Attack [" << this->Attack << "]" << std::endl;
+		std::cout << " Energy [" << this->Energy << "]" << std::endl;
 		return;
 	}
-	else
-		std::cout << this->Name << " have no enough points to repair! " << std::endl;
+	
 	;
 
 }
