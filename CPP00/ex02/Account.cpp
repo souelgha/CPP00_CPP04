@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 14:38:48 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/19 16:16:55 by sonia            ###   ########.fr       */
+/*   Updated: 2024/08/28 16:52:52 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void Account::makeDeposit(int deposit)
 		this->_totalAmount+=deposit;
 		this->_totalNbDeposits++;
 		this->_nbDeposits++;
-		std::cout << ";deposits:" << deposit << ";amount:" << Account::checkAmount();
+		std::cout << ";deposit:" << deposit << ";amount:" << Account::checkAmount();
 		std::cout << ";nb_deposits:" << this->_nbDeposits << std::endl;
 	}
 	else 

@@ -6,14 +6,13 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 16:41:47 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/08/07 17:25:18 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/04 09:33:42 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"PhoneBook.hpp"
+#include"PhoneBook_utils.hpp"
 
-int check_digits(std::string str);
-std::string trim(const std::string str);
 
 PhoneBook::PhoneBook()
 {
@@ -82,10 +81,6 @@ void PhoneBook::add()
 	this->_index++;
 }
 
-Contact	PhoneBook::getcontact(int index)
-{
-	return (this->_contacts[index % MAXCONT]);
-}
 void PhoneBook::DisplayOne(int index)
 {
 	std::cout << "first name:\t" << this->_contacts[index].getfstn() << std::endl;
@@ -103,21 +98,22 @@ void PhoneBook::Search()
 		return;
 	}
 	PhoneBook::Displaycategory();	
-	std::string str;
+	std::string str ;
 	std::cout << "Enter requested index: ";
 	std::getline(std::cin, str);
 	int lim = (this->_index > MAXCONT) ? MAXCONT : this->_index;
 	if (str.length() != 1)
 	{
-		std::cout << "ERROR! Enter index between 0 and " << lim - 1<< std::endl;
+		std::cout << "ERROR! Enter index between 0 and " << lim - 1 << std::endl;
 		return;
 	}
-	if (!(std::isdigit(static_cast<unsigned char>(str[0]))))
+	if (!(std::isdigit(str[0])))
 	{
-		std::cout << "ERROR! Enter index between 0 and " << lim - 1<< std::endl;
+		std::cout << "ERROR! Enter digit index between 0 and " << lim - 1 << std::endl;
 		return;
 	}
-	int num =stoi(str);
+	int num;
+	std::istringstream(str) >> num;
 	if (num < 0 || num >= lim)
 	{
 		std::cout << "ERROR_NO CONTACT: Enter index between 0 and " << lim - 1 << std::endl;
@@ -144,36 +140,7 @@ void PhoneBook::Displaycategory()
 		std::cout << std::endl;
 	}
 }
-int check_digits(std::string str)
-{
-	for(std::string::iterator it=str.begin(); it!=str.end(); ++it)
-	{
-		if (!(std::isdigit(static_cast<unsigned char>(*it))))
-		{
-			std::cout << "Error Phone number: Enter digit between 0 and 9" << std::endl;
-			return(0);
-		}
-	}
-	return(1);
-}
 
-/**** gestion des isspaces dans les entrees
- ***** utilisation de find et npos  
-****** npos est vrai si toute la str est vide (conditions find_first_not_of ())
- */
-std::string trim(const std::string str)
-{
-	std::string nospace;
-	std::string whitespaces (" \t\f\v\n\r");
-	size_t start = str.find_first_not_of(whitespaces);
-	if(start == std::string::npos) 
-		return(""); 
-	nospace = str.substr(start);
-	size_t end = nospace.find_last_not_of(whitespaces);		
-	if( end != std::string::npos)
-		nospace = nospace.substr(0, end + 1);
-	return(nospace);
-}
 std::string PhoneBook::truncated(std::string str)
 {
 	if(str.length() > 10)

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:54:50 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/16 17:29:15 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/18 13:28:08 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void incrementFct (void)
 	std::cout << GREEN << "/***** operations d incrementations *****/" << std::endl;
 	Fixed a;
 
-	std::cout << "a is " << a << std::endl;
+	std::cout << "a is "   << a << std::endl;
 	std::cout << "++a is " << ++a << std::endl;
-	std::cout << "a is " << a << std::endl;
+	std::cout << "a is "   << a << std::endl;
 	std::cout << "a++ is " << a++ << std::endl;
-	std::cout << "a is " << a << std::endl;
+	std::cout << "a is "   << a << std::endl;
 	std::cout << "a++ is " << a++ << std::endl;
-	std::cout << "a is " << a << std::endl;
+	std::cout << "a is "   << a << std::endl;
 	std::cout << "a-- is " << a-- << std::endl;
-	std::cout << "a is " << a << std::endl;
+	std::cout << "a is "   << a << std::endl;
 	std::cout << "--a is " << --a << std::endl;
-	std::cout << "a is " << a << std::endl;
+	std::cout << "a is "   << a << std::endl;
 	std::cout << WHITE  << std::endl;
 }
 
@@ -77,24 +77,24 @@ void OpeCompar()
 	std::cout << "c:\t " << c << std::endl;
 	std::cout << "d:\t " << d << std::endl;
 	
-	std::cout << " a > c ?: " << a.operator>(c)<< std::endl;
-	std::cout << " a < c ?: " << a.operator<(c)<< std::endl;	
+	std::cout << " a > c ?: "  << a.operator>(c)<< std::endl;
+	std::cout << " a < c ?: "  << a.operator<(c)<< std::endl;	
 	std::cout << " a == c ?: " << a.operator==(c)<< std::endl;
 	std::cout << " a <= c ?: " << a.operator<=(c)<< std::endl;
 	std::cout << " a >= c ?: " << a.operator>=(c)<< std::endl;
 	std::cout << " a != c ?: " << a.operator!=(c)<< std::endl;
-	std::cout << " a > b ?: " << a.operator>(b)<< std::endl;
-	std::cout << " a < b ?: " << a.operator<(b)<< std::endl;	
-	std::cout << " a == b ?: " << a.operator==(b)<< std::endl;
-	std::cout << " a <= b ?: " << a.operator<=(b)<< std::endl;
-	std::cout << " a >= b ?: " << a.operator>=(b)<< std::endl;
-	std::cout << " a != b ?: " << a.operator!=(b)<< std::endl;
-	std::cout << " c > d ?: " << c.operator>(d)<< std::endl;
-	std::cout << " c < d ?: " << c.operator<(d)<< std::endl;
-	std::cout << " c == d ?: " << c.operator==(d)<< std::endl;
-	std::cout << " c <= d ?: " << c.operator<=(d)<< std::endl;
-	std::cout << " c >= d ?: " << c.operator>=(d)<< std::endl;
-	std::cout << " c != d ?: " << c.operator!=(d)<< std::endl;
+	std::cout << " a > b ?: "  << (a > b)  << std::endl;
+	std::cout << " a < b ?: "  << (a < b)  << std::endl;	
+	std::cout << " a == b ?: " << (a == b) << std::endl;
+	std::cout << " a <= b ?: " << (a <= b) << std::endl;
+	std::cout << " a >= b ?: " << (a >= b) << std::endl;
+	std::cout << " a != b ?: " << (a != b) << std::endl;
+	std::cout << " c > d ?: "  << (c > d)  << std::endl;
+	std::cout << " c < d ?: "  << (c < d)  << std::endl;
+	std::cout << " c == d ?: " << (c == d) << std::endl;
+	std::cout << " c <= d ?: " << (c <= d) << std::endl;
+	std::cout << " c >= d ?: " << (c >= d) << std::endl;
+	std::cout << " c != d ?: " << (c != d) << std::endl;
 	std::cout << WHITE  << std::endl;
 }
 void OpeMaxMin()
@@ -124,11 +124,9 @@ void OpeMaxMin()
 
 int main(void)
 {
-	
 	OpeArithmetic();
 	OpeCompar();
 	incrementFct();
-	OpeMaxMin();
-		
+	OpeMaxMin();		
 	return (0);
 }

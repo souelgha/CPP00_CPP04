@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 16:54:43 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/16 14:57:19 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/17 11:29:37 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,28 @@ int Fixed::toInt(void) const
 }
 float Fixed::toFloat(void) const
 {
-	return static_cast<float>(value) / (1 << fract_bit);
+	return ((float)(value) / (float)(1 << fract_bit));
 }
 Fixed& Fixed::operator++(void)
 {
-	value += 1;
+	value++;
 	return(*this);
 }
 Fixed Fixed::operator++(int)
 {
 	Fixed temp = *this;
-	value += 1;
+	++value;
 	return(temp);
 }
 Fixed& Fixed::operator--(void)
 {
-	value -= 1;
+	value--;
 	return(*this);
 }
 Fixed Fixed::operator--(int)
 {
 	Fixed temp = *this;
-	value -= 1;
+	--value;
 	return(temp);
 }
 Fixed Fixed::operator+(const Fixed& other) 

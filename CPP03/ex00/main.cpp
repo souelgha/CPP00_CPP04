@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 15:02:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/18 16:53:02 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/19 13:46:33 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@ int main()
 	ClapTrap J("Jerry");
 	ClapTrap P("Paul");
 
-	std::cout << GREEN ;
+	std::cout << GREEN ;	
+	T.attack(J.getName());
 	J.takeDamage(5);
-	T.attack(J.getName());	
 	J.beRepaired(1);
-	T.takeDamage(2);
-	J.attack(T.getName());	
+	std::cout << YELLOW ;	
+	J.attack(T.getName());
+	T.attack(P.getName());
 	P.takeDamage(5);
-	T.attack(P.getName());	
+	std::cout << GREEN ;	
 	P.attack(T.getName());
 	T.takeDamage(4);
-	J.beRepaired(1);
+	std::cout << CYAN ;
 	T.attack(J.getName());
+	J.takeDamage(6);
+	J.beRepaired(4);
 	J.takeDamage(5);
 	std::cout << WHITE;
 	

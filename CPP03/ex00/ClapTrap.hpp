@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:17:35 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/18 17:04:09 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:43:29 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 	#define CLAPTRAP_H
 
 #include<iostream>
-#include<string>
 #define RED "\033[0;31m"
 #define GREEN "\033[0;32m"
 #define YELLOW "\033[0;33m"
@@ -27,9 +26,9 @@ class ClapTrap
 {
 	private:
 		std::string Name;
-		unsigned int Hit;
-		unsigned int Energy;
-		unsigned int Attack; 
+		unsigned int Hit_points;
+		unsigned int Energy_points;
+		unsigned int Attack_damage;
 	
 	public:
 		ClapTrap();

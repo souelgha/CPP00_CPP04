@@ -1,6 +1,6 @@
 NAME	= megaphone
 CFLAGS	= -std=c++98 -Wall -Wextra -Werror
-INCS	= -I
+
 
 SRC 	= megaphone.cpp 
 			
@@ -8,8 +8,8 @@ OBJ		= $(SRC:.cpp=.o)
 
 all : $(NAME)
 
-%.o: %.c
-	c++ $(CFLAGS) -c $< -o $@ $(INCS)
+%.o: %.cpp
+	c++ $(CFLAGS) -c $< -o $@ 
 
 $(NAME) : $(OBJ) 
 		c++ $(CFLAGS) $(OBJ) -o $(NAME)

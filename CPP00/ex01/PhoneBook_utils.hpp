@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   PhoneBook_utils.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 15:08:12 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/11 12:36:40 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/08/30 14:43:46 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/08/30 14:46:52 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanA.hpp"
+#ifndef PHONEBOOK_UTILS_H
+	#define PHONEBOOK_UTILS_H
 
-HumanA::HumanA(std::string nom, Weapon& arm):type(arm), name(nom)
-{
-}
+#include "PhoneBook.hpp"
 
-HumanA::~HumanA()
-{
-}
+int check_digits(std::string str);
+std::string trim(const std::string str);
 
-void HumanA::attack() const
-{
-	std::cout << YELLOW << "HumanA " << name << " attacks with their "<< type.getType() << DEFAULT << std::endl;
-}
+#endif

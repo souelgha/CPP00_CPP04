@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 12:22:28 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/13 10:20:20 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/17 10:42:16 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-	return static_cast<float>(value) / (1 << fract_bit);
+	return ((float)(value) / (float)(1 << fract_bit));
 }
 std::ostream& operator<<(std::ostream& os, const Fixed& a)
 {

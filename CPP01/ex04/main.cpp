@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 15:03:11 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/06 13:28:26 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:14:17 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 
 std::string replacestring(std::string s, std::string str1, std::string str2)
 {
+	if(str1 == str2 || str1.empty())
+		return(s);
 	size_t pos=0;
 	while((pos = s.find(str1, pos)) != std::string::npos)
 	{
@@ -50,27 +52,19 @@ int main(int argc, char **argv)
 	if(!source)
 	{
 		std::cerr << RED << "ERROR : ouverture impossible. \nverifier que le fichier source existe ;" << "\n";
-		std::cerr << "verifier les droits sur le fichier." << std::endl;
+		std::cerr << "verifier les droits sur le fichier." << DEFAULT << std::endl;
 		return(1);
 	}
 	std::string fileContent((std::istreambuf_iterator<char>(source)), std::istreambuf_iterator<char>());
     source.close();
-	if(fileContent=="")
-	{
-		std::cerr << YELLOW << "le fichier est vide" << DEFAULT  << std::endl;
-		return(1);
-	}
 	std::string finalVersion= replacestring(fileContent, str1, str2);
 	if(finalVersion.compare(fileContent) == 0)
-	{
-		std::cerr << MAGENTA << "pas d occurence trouvee. fichier replace non cree" << DEFAULT  << std::endl;
-		return(1);
-	}
+		std::cerr << MAGENTA << "fichier .replace sera identique a l original" << DEFAULT  << std::endl;
 	std::ofstream dest(destfile.c_str());
 	if(!dest)
 		std::cerr << RED << "ERROR : impossible d ecrire dans le fichier de destination " << DEFAULT << std::endl;	
 	dest << finalVersion;	
 	dest.close();
-	std::cout << CYAN << "nouveau fichier cree avec le contenu modifie" << DEFAULT << std::endl;
+	std::cout << CYAN << "nouveau fichier cree avec succes" << DEFAULT << std::endl;
 	return(0);	
 }

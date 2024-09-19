@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 18:20:35 by sonia             #+#    #+#             */
-/*   Updated: 2024/08/21 19:25:03 by sonia            ###   ########.fr       */
+/*   Updated: 2024/09/11 11:24:42 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,4 @@ void randomChump(std::string name)
 {
 	Zombie zomb1(name);
 	zomb1.announce();
-
 }

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:53:06 by sonia             #+#    #+#             */
-/*   Updated: 2024/09/06 11:33:07 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/11 12:09:00 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 Zombie::Zombie(std::string nom)
 {
+	std::cout << "constructeur appele" << std::endl;	
 	this->_name = nom;
 }
-Zombie::Zombie(void)
+Zombie::Zombie()
 {
-	this->_name = "Foo";
+	std::cout << "constructeur par default "<< std::endl;
 }
 Zombie::~Zombie()
 {
