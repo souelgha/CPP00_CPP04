@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:37:00 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 12:00:30 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:08:38 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ void ScavTrap::attack(const std::string& target)
 }
 void ScavTrap::guardGate(void)
 {
-	std::cout << YELLOW << "ScavTrap is now in GateKeeper mode." << WHITE << std::endl;
+	std::cout << YELLOW << getName() << " ScavTrap is now in GateKeeper mode." << WHITE << std::endl;
 }
 

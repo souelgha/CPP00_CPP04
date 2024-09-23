@@ -1,8 +1,8 @@
-NAME = ScavTrap
+NAME = FragTrap
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 CC= c++
 
-SRC= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJ=$(SRC:.cpp=.o)
 
