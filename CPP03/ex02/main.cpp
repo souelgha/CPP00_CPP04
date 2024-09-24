@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:42:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 13:19:57 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:31:07 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,9 @@ void test03(void)
 	J.takeDamage(6);
 	J.beRepaired(4);
 	J.takeDamage(5);
-	std::cout << GREEN ;
 	J.attack(T.getName());
 	T.takeDamage(8);
 	J.guardGate();
-	std::cout << RED ;
 	Y.attack(J.getName());
 	J.attack(Y.getName());
 	Y.takeDamage(40);
@@ -59,9 +57,8 @@ void test03(void)
 }
 int main()
 {
-	test01();
-	test02();
-	test03();
-	
+	// test01();
+	// test02();
+	test03();	
 	return(0);
 }

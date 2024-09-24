@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:17:35 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 15:21:48 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/24 11:56:53 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ class ClapTrap
 		unsigned int getHit(void);
 		unsigned int getEnergy(void);
 		unsigned int getAttack(void);
-		void setName(std::string nom);
-		
+		void setName(std::string nom);	
 
 };
 

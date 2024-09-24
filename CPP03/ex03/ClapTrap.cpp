@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:37:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 10:33:09 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:14:13 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,12 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	(void) other;
+	if(this == &other)
+		return(*this);
+	this->Name = other.Name;
+	this->Hit_points = other.Hit_points;
+	this->Energy_points = other.Energy_points;
+	this->Attack_damage = other.Attack_damage;
 	std::cout << BLUE << "constructeur d assignation de copie" << WHITE << std::endl;
 	return(*this);
 }

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:37:00 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 13:08:38 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:11:58 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ ScavTrap::ScavTrap(std::string nom): ClapTrap(nom)
 }
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 {
-	this->Name = other.Name;
-	this->Hit_points = other.Hit_points;
-	this->Energy_points = other.Energy_points;
-	this->Attack_damage = other.Attack_damage;
 	std::cout << YELLOW <<"[ScavTrap] constructeur de copie" << std::endl;
 }
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-	(void) other;
+	if(this == &other)
+		return(*this);
+	this->Name = other.Name;
+	this->Hit_points = other.Hit_points;
+	this->Energy_points = other.Energy_points;
+	this->Attack_damage = other.Attack_damage;
 	std::cout << YELLOW <<"[ScavTrap] constructeur d assignation de copie" << WHITE << std::endl;
 	return(*this);
 }
@@ -56,4 +57,3 @@ void ScavTrap::guardGate(void)
 {
 	std::cout << YELLOW << getName() << " ScavTrap is now in GateKeeper mode." << WHITE << std::endl;
 }
-

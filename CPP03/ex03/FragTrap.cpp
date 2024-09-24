@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:42:37 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 13:12:26 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:12:24 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ FragTrap::FragTrap(std::string nom): ClapTrap(nom)
 }
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
 {
-	this->Name = other.Name;
-	this->Hit_points = other.Hit_points;
-	this->Energy_points = other.Energy_points;
-	this->Attack_damage = other.Attack_damage;
 	std::cout << CYAN <<"[FragTrap] constructeur de copie" << std::endl;
 }
 FragTrap& FragTrap::operator=(const FragTrap& other)
 {
-	(void) other;
+	if(this == &other)
+		return(*this);
+	this->Name = other.Name;
+	this->Hit_points = other.Hit_points;
+	this->Energy_points = other.Energy_points;
+	this->Attack_damage = other.Attack_damage;
 	std::cout << CYAN <<"[FragTrap] constructeur d assignation de copie" << WHITE << std::endl;
 	return(*this);
 }

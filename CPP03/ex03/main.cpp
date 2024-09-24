@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:42:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 17:14:20 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:16:35 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,14 @@ void test05(void)
 	FragTrap Y("Yoan");
 	DiamondTrap B("Barbie");
 
-	std::cout << MAGENTA ;	
+	std::cout << MAGENTA ;
+	B.whoAmI();
 	T.attack(B.getName());
 	B.takeDamage(20);
+	T.attack(B.getName());
+	B.takeDamage(20);
+	T.attack(B.getName());
+	B.takeDamage(40);
 	B.beRepaired(10);
 	std::cout << YELLOW ;	
 	J.attack(T.getName());
@@ -49,7 +54,6 @@ void test05(void)
 	std::cout << CYAN ;
 	B.attack(J.getName());
 	J.takeDamage(6);
-	B.whoAmI();
 	J.takeDamage(5);
 	std::cout << GREEN ;
 	J.attack(T.getName());
