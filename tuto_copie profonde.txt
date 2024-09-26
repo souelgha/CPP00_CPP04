@@ -1,0 +1,45 @@
+syntaxe
+retour (NomDeLaClasse::*NomDuPointeur)(paramètres);
+void (MaClasse::*pointeurSurFonction)();
+
+exemples
+void (MaClasse::*pointeur)() = &MaClasse::afficher;
+
+2 facon d appeler la fonction membre
+Appelle la fonction afficher()
+	MaClasse objet;
+	(objet.*pointeur)();  // Appelle la fonction afficher()
+
+Appelle la fonction afficher() via un pointeur sur l'objet
+	MaClasse* ptrObjet = &objet;
+	(ptrObjet->*pointeur)();  // Appelle la fonction afficher() via un pointeur sur l'objet
+
+Déclaration : Un pointeur sur une fonction membre inclut le nom de la classe :
+retour (NomDeLaClasse::*NomDuPointeur)(paramètres).
+Appel : Utilisez 
+	objet.*pointeur ou 
+	ptrObjet->*pointeur 
+selon si vous avez un objet direct ou un pointeur sur l'objet.
+
+class virtuelle : celle qui est heritee plusieurs fois qu il faut rendre virtuelle.
+	Heritage en diamant implique que son constructeur appelle la classe mere explicitement en plus des classes heritees.
+
+copie profonde 
+une copie de surface (par defaut)
+	=> fait une copie membre a membre de l attribut d origine .
+	=> devient problematiaue en cas d utilisation de pointeur. elle n est pas adaptee.
+	=> l espace memoire est partage entre les 2 objets car la copie se fait membre a membre. du coup quand on va detruire la copie on va aussi liberer la memoire des membres copies qui ont la meme adresse que l original. 
+	=> on pointe sur une meme zone memoire.
+
+copie profonde => permet de creer des objets qui pointent vers des zones memoires independantes et qui ont les mm valeurs que celle de lobjet d origine. donc on devient independants.
+	=> sa destruction n a plus d incidence sur l objet d origine car il est totalement independant.
+	=> quand une class contient des pointeurs il faut systematiquement utiliser la copie profonde.
+	=> on aloue avec new un nouvel espace pour les attributs.	
+
+resolution dynamique des liens : 2 conditions 
+	=> methodes virtuelles
+	=> utilisation des pointeurs et/ou references
+
+classe non instanciable :
+	=> virtuelle pure 
+	=> constructeur protege

@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 11:55:41 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/26 10:58:03 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/09/24 15:09:13 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/09/25 14:49:07 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_H
-	#define BRAIN_H
+#ifndef CAT_H
+	#define CAT_H
 
-#include "Animal.hpp"
+#include"Animal.hpp"
+#include"Brain.hpp"
 
-class Brain
+class Cat : public Animal
 {
-	protected:
-		std::string* ideas;
-	
+	private :
+		Brain *CatBrain;
 	public:
-		Brain();
-		Brain(std::string *idea);
-		Brain(const Brain& other);
-		Brain& operator=(const Brain& other);
-		virtual ~Brain();
+		Cat();
+		Cat(const std::string bete);
+		Cat(const Cat& other);
+		Cat& operator=(const Cat& other);
+		virtual ~Cat();
+		void makeSound() const;
 		std::string getIdea(int index) const;
-		void setIdea(int index, std::string idea);
-
 
 };
 #endif

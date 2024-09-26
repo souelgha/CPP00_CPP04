@@ -1,0 +1,22 @@
+syntaxe
+retour (NomDeLaClasse::*NomDuPointeur)(paramètres);
+void (MaClasse::*pointeurSurFonction)();
+
+exemples
+void (MaClasse::*pointeur)() = &MaClasse::afficher;
+
+2 facon d appeler la fonction membre
+Appelle la fonction afficher()
+	MaClasse objet;
+	(objet.*pointeur)();  // Appelle la fonction afficher()
+
+Appelle la fonction afficher() via un pointeur sur l'objet
+	MaClasse* ptrObjet = &objet;
+	(ptrObjet->*pointeur)();  // Appelle la fonction afficher() via un pointeur sur l'objet
+
+Déclaration : Un pointeur sur une fonction membre inclut le nom de la classe :
+retour (NomDeLaClasse::*NomDuPointeur)(paramètres).
+Appel : Utilisez 
+	objet.*pointeur ou 
+	ptrObjet->*pointeur 
+selon si vous avez un objet direct ou un pointeur sur l'objet.
