@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 12:21:32 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/26 10:58:03 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/30 19:42:31 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,10 @@ void Brain::setIdea(int index, std::string idea)
 {
 	if(index >= 0 && index < 100)
 		this->ideas[index]= idea;
+}
+void Brain::printIdeas(void)
+{
+	for (int i=0; i < 100 ; ++i)
+		std::cout << getIdea(i) << std::endl;
+		
 }
