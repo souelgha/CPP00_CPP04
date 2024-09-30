@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:37:00 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/24 12:11:58 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/30 17:49:28 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	if(this == &other)
 		return(*this);
-	this->Name = other.Name;
+	this->_Name = other._Name;
 	this->Hit_points = other.Hit_points;
 	this->Energy_points = other.Energy_points;
 	this->Attack_damage = other.Attack_damage;
@@ -46,10 +46,10 @@ void ScavTrap::attack(const std::string& target)
 {
 	if(this->Hit_points == 0 || this->Energy_points == 0)
 	{
-		std::cout << YELLOW << "ScavTrap " << this->Name << " is already dead. No attack possible" << WHITE << std::endl;
+		std::cout << YELLOW << "ScavTrap " << this->_Name << " is already dead. No attack possible" << WHITE << std::endl;
 		return;
 	}
-	std::cout << YELLOW << "ScavTrap " << this->Name << " attacks " << target;
+	std::cout << YELLOW << "ScavTrap " << this->_Name << " attacks " << target;
 	std::cout << " causing " << this->Attack_damage << " points of damage !" << WHITE << std::endl;
 	this->Energy_points--;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:42:37 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/24 12:22:34 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:40:09 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 FragTrap::FragTrap():ClapTrap()
 {
-	std::cout << CYAN << "[FragTrap] constructeur par default" << WHITE <<std::endl;
+	std::cout << CYAN << "[FragTrap] constructeur par defaut de "  << this->_Name  << WHITE <<std::endl;
 }
-FragTrap::FragTrap(std::string nom): ClapTrap(nom)
+FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
 	this->Hit_points = 100;
 	this->Energy_points= 100;
 	this->Attack_damage = 30;
-	std::cout << CYAN <<"[FragTrap] constructeur avec parametres" << WHITE << std::endl;
+	std::cout << CYAN <<"[FragTrap] constructeur avec parametres de "  << this->_Name << WHITE << std::endl;
 }
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other)
 {
@@ -31,7 +31,7 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 {
 	if(this == &other)
 		return(*this);
-	this->Name = other.Name;
+	this->_Name = other._Name;
 	this->Hit_points = other.Hit_points;
 	this->Energy_points = other.Energy_points;
 	this->Attack_damage = other.Attack_damage;
@@ -40,21 +40,21 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 }
 FragTrap::~FragTrap()
 {
-	std::cout << CYAN <<"[FragTrap] destructeur par default" << WHITE << std::endl;
+	std::cout << CYAN <<"[FragTrap] destructeur par default de " << this->_Name << WHITE << std::endl;
 }
 void FragTrap::attack(const std::string& target)
 {
 	if(this->Hit_points == 0 || this->Energy_points == 0)
 	{
-		std::cout << CYAN << "FragTrap " << this->Name << " is already dead. No attack possible" << WHITE << std::endl;
+		std::cout << CYAN << "FragTrap " << this->_Name << " is already dead. No attack possible" << WHITE << std::endl;
 		return;
 	}
-	std::cout << CYAN << "FragTrap " << this->Name << " attacks " << target;
+	std::cout << CYAN << "FragTrap " << this->_Name << " attacks " << target;
 	std::cout << " causing " << this->Attack_damage << " points of damage !" << WHITE << std::endl;
 	this->Energy_points--;
 }
 
 void FragTrap::highFivesGuys(void)
 {
-	std::cout << CYAN << getName() << " gives a FiveGuys check!" << WHITE << std::endl;
+	std::cout << CYAN << getName() << " FragTrap gives a FiveGuys check!" << WHITE << std::endl;
 }

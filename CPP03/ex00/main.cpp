@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 15:02:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/19 13:46:33 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:55:23 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,19 @@ int main()
 	ClapTrap J("Jerry");
 	ClapTrap P("Paul");
 
-	std::cout << GREEN ;	
-	T.attack(J.getName());
-	J.takeDamage(5);
-	J.beRepaired(1);
-	std::cout << YELLOW ;	
 	J.attack(T.getName());
 	T.attack(P.getName());
-	P.takeDamage(5);
-	std::cout << GREEN ;	
-	P.attack(T.getName());
-	T.takeDamage(4);
-	std::cout << CYAN ;
 	T.attack(J.getName());
-	J.takeDamage(6);
-	J.beRepaired(4);
+	P.attack(T.getName());
+	
 	J.takeDamage(5);
-	std::cout << WHITE;
-	
-	
+	J.takeDamage(2);
+	P.takeDamage(5);	
+	T.takeDamage(4);
+
+	J.takeDamage(6);
+	P.beRepaired(4);
+	T.beRepaired(1);
+
 	return(0);
 }

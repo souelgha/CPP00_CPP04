@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:42:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/24 12:16:35 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:15:37 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,35 +38,33 @@ void test05(void)
 	ScavTrap J("Jerry");
 	FragTrap Y("Yoan");
 	DiamondTrap B("Barbie");
+	DiamondTrap *Z= new DiamondTrap("Zoro");
 
 	std::cout << MAGENTA ;
 	B.whoAmI();
+	Z->whoAmI();
+
+	Y.attack("Barbie");
+	Z->attack("Barbie");
 	T.attack(B.getName());
+	B.attack("Zoro");
+	B.attack("Zoro");
+	T.attack("Jerry");
+	J.attack("Tom");
+
 	B.takeDamage(20);
-	T.attack(B.getName());
+	J.takeDamage(20);
 	B.takeDamage(20);
-	T.attack(B.getName());
-	B.takeDamage(40);
+	Z->takeDamage(20);	
+	T.takeDamage(40);
+
 	B.beRepaired(10);
-	std::cout << YELLOW ;	
-	J.attack(T.getName());
-	T.takeDamage(8);
-	std::cout << CYAN ;
-	B.attack(J.getName());
-	J.takeDamage(6);
-	J.takeDamage(5);
-	std::cout << GREEN ;
-	J.attack(T.getName());
-	T.takeDamage(8);
+	T.beRepaired(15);
+
 	J.guardGate();
-	std::cout << RED ;
-	Y.attack(J.getName());
-	J.attack(Y.getName());
-	Y.takeDamage(40);
-	Y.beRepaired(15);
 	Y.highFivesGuys();
-	J.guardGate();
-	std::cout << WHITE;
+
+	delete Z;
 }
 int main()
 {

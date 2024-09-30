@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:42:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/23 12:00:56 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:47:52 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,18 @@ void test02(void)
 	ClapTrap T("Tom");
 	ScavTrap J("Jerry");
 
-	std::cout << GREEN ;	
+	J.attack(T.getName());
 	T.attack(J.getName());
+	T.attack(J.getName());
+
 	J.takeDamage(40);
-	J.beRepaired(10);
-	std::cout << YELLOW ;	
-	J.attack(T.getName());
-	T.takeDamage(8);
-	std::cout << CYAN ;
-	T.attack(J.getName());
 	J.takeDamage(6);
-	J.beRepaired(4);
-	J.takeDamage(5);
-	std::cout << GREEN ;
-	J.attack(T.getName());
 	T.takeDamage(8);
+	J.beRepaired(4);
+	J.beRepaired(10);
+
 	J.guardGate();
-	std::cout << WHITE;
+
 }
 int main()
 {

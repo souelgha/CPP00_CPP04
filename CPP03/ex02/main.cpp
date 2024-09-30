@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:42:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/24 12:31:07 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/09/30 18:39:10 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,33 @@ void test03(void)
 	ClapTrap T("Tom");
 	ScavTrap J("Jerry");
 	FragTrap Y("Yoan");
+	FragTrap K("Karim");
 
-	std::cout << GREEN ;	
+
 	T.attack(J.getName());
-	J.takeDamage(40);
-	J.beRepaired(10);
-	std::cout << YELLOW ;	
+	J.attack(K.getName());
+	T.attack(Y.getName());
 	J.attack(T.getName());
-	T.takeDamage(8);
-	std::cout << CYAN ;
-	T.attack(J.getName());
-	J.takeDamage(6);
-	J.beRepaired(4);
-	J.takeDamage(5);
-	J.attack(T.getName());
-	T.takeDamage(8);
-	J.guardGate();
 	Y.attack(J.getName());
 	J.attack(Y.getName());
+	K.attack(Y.getName());
+
+	J.takeDamage(40);
+	T.takeDamage(8);
+	J.takeDamage(20);
+	T.takeDamage(8);
 	Y.takeDamage(40);
-	Y.beRepaired(15);
-	Y.highFivesGuys();
+	K.takeDamage(30);
+
+
+	J.beRepaired(10);
+	Y.beRepaired(10);
+	J.beRepaired(4);
+	K.beRepaired(15);
+
 	J.guardGate();
-	std::cout << WHITE;
+	Y.highFivesGuys();
+	K.highFivesGuys();
 }
 int main()
 {
