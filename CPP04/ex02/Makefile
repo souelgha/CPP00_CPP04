@@ -1,4 +1,4 @@
-NAME=Polymorph2
+NAME=Polymorph_ex02
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 CC=c++
 

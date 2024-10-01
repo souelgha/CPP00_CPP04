@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:35:48 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/25 14:03:07 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/01 10:33:19 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Cat::Cat(): Animal("Cat")
 Cat::Cat(const std::string type): Animal(type)
 {
 	this->_type= "Cat";
-	std::cout << "type cat == " << this->_type << std::endl;
 	std::cout << YELLOW << "[Cat] Constructeur avec parametres appele." << WHITE<< std::endl;
 }
 Cat::Cat(const Cat& other): Animal(other)

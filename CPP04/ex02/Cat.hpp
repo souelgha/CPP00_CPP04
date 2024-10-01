@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:09:13 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/25 14:49:07 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/01 11:01:34 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Cat : public Animal
 		Cat& operator=(const Cat& other);
 		virtual ~Cat();
 		void makeSound() const;
-		std::string getIdea(int index) const;
+		Brain *getBrain() const;
 
 };
 #endif

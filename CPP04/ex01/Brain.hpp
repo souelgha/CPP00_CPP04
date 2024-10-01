@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 11:55:41 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/26 10:58:03 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/01 10:40:10 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Brain
 		virtual ~Brain();
 		std::string getIdea(int index) const;
 		void setIdea(int index, std::string idea);
+		void printIdeas(void);
 
 
 };
