@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:37:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/30 17:46:37 by sonia            ###   ########.fr       */
+/*   Updated: 2024/10/03 15:03:45 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 ClapTrap::ClapTrap():_Name("unknown"),Hit_points(10), Energy_points(10), Attack_damage(0)
 {
-	std::cout << BLUE << "[ClapTrap] constructeur par default" << WHITE << std::endl;
+	std::cout << BLUE << "[ClapTrap] constructeur par defaut de " << this->_Name << WHITE << std::endl;
 }
 ClapTrap::ClapTrap(std::string nom):_Name(nom),Hit_points(10), Energy_points(10), Attack_damage(0)
 {
-	std::cout << BLUE << "[ClapTrap] constructeur avec parametres" << WHITE << std::endl;
+	std::cout << BLUE << "[ClapTrap] constructeur avec parametres de " << this->_Name << WHITE << std::endl;
 }
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 	this->Hit_points = other.Hit_points;
 	this->Energy_points = other.Energy_points;
 	this->Attack_damage = other.Attack_damage;
-	std::cout << BLUE  << "[Claptrap] constructeur de copie" <<  WHITE << std::endl;
+	std::cout << BLUE  << "[Claptrap] constructeur de copie de " << this->_Name <<  WHITE << std::endl;
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
@@ -36,32 +36,20 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 	this->Hit_points = other.Hit_points;
 	this->Energy_points = other.Energy_points;
 	this->Attack_damage = other.Attack_damage;
-	std::cout << BLUE << "constructeur d assignation de copie" << WHITE << std::endl;
+	std::cout << BLUE << "constructeur d assignation de " << this->_Name << WHITE << std::endl;
 	return(*this);
 }
 ClapTrap::~ClapTrap()
 {
-	std::cout << BLUE <<"[ClapTrap] destructeur par default" << WHITE << std::endl;
+	std::cout << BLUE <<"[ClapTrap] destructeur par defaut de " << this->_Name << WHITE << std::endl;
 }
 void ClapTrap::setName(std::string nom)
 {
 	this->_Name = nom;
 }
-std::string ClapTrap::getName()
+std::string ClapTrap::getName()const
 {
 	return(this->_Name);
-}
-unsigned int ClapTrap::getHit(void)
-{
-	return(this->Hit_points);
-}
-unsigned int ClapTrap::getEnergy(void)
-{
-	return(this->Energy_points);
-}
-unsigned int ClapTrap::getAttack(void)
-{
-	return(this->Attack_damage);
 }
 void ClapTrap::attack(const std::string& target)
 {

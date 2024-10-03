@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 12:37:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/30 18:52:11 by sonia            ###   ########.fr       */
+/*   Updated: 2024/10/03 14:58:07 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,9 @@ void ClapTrap::setName(std::string nom)
 {
 	this->_Name = nom;
 }
-std::string ClapTrap::getName()
+std::string ClapTrap::getName() const
 {
 	return(this->_Name);
-}
-unsigned int ClapTrap::getHit(void)
-{
-	return(this->Hit_points);
-}
-unsigned int ClapTrap::getEnergy(void)
-{
-	return(this->Energy_points);
-}
-unsigned int ClapTrap::getAttack(void)
-{
-	return(this->Attack_damage);
 }
 void ClapTrap::attack(const std::string& target)
 {

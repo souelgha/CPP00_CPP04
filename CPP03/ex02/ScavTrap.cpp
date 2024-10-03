@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:37:00 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/30 18:41:43 by sonia            ###   ########.fr       */
+/*   Updated: 2024/10/03 14:54:17 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 ScavTrap::ScavTrap():ClapTrap()
 {
+	this->_Name ="unknown";
+	this->Hit_points = 100;
+	this->Energy_points= 50;
+	this->Attack_damage = 20;
 	std::cout << YELLOW << "[ScavTrap] constructeur par defaut de "  << this->_Name  << WHITE <<std::endl;
 }
 ScavTrap::ScavTrap(std::string nom): ClapTrap(nom)
@@ -31,10 +35,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
 	if(this == &other)
 		return(*this);
-	this->_Name = other._Name;
-	this->Hit_points = other.Hit_points;
-	this->Energy_points = other.Energy_points;
-	this->Attack_damage = other.Attack_damage;
+	ClapTrap::operator=(other);
 	std::cout << YELLOW <<"[ScavTrap] constructeur d assignation de copie" << WHITE << std::endl;
 	return(*this);
 }
@@ -55,6 +56,6 @@ void ScavTrap::attack(const std::string& target)
 }
 void ScavTrap::guardGate(void)
 {
-	std::cout << YELLOW << getName() << " ScavTrap is now in GateKeeper mode." << WHITE << std::endl;
+	std::cout << YELLOW << "ScavTrap " << this->_Name << " is now in GateKeeper mode." << WHITE << std::endl;
 }
 

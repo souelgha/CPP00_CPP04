@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 15:37:00 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/30 17:49:28 by sonia            ###   ########.fr       */
+/*   Updated: 2024/10/03 14:48:43 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,22 @@
 
 ScavTrap::ScavTrap():ClapTrap()
 {
-	std::cout << YELLOW << "[ScavTrap] constructeur par default" << WHITE <<std::endl;
+	this->_Name = "unknown";
+	this->Hit_points = 100;
+	this->Energy_points= 50;
+	this->Attack_damage = 20;
+	std::cout << YELLOW << "[ScavTrap] constructeur par defaut de " << this->_Name << WHITE <<std::endl;
 }
 ScavTrap::ScavTrap(std::string nom): ClapTrap(nom)
 {
 	this->Hit_points = 100;
 	this->Energy_points= 50;
 	this->Attack_damage = 20;
-	std::cout << YELLOW <<"[ScavTrap] constructeur avec parametres" << WHITE << std::endl;
+	std::cout << YELLOW <<"[ScavTrap] constructeur avec parametres de " << this->_Name << WHITE << std::endl;
 }
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 {
-	std::cout << YELLOW <<"[ScavTrap] constructeur de copie" << std::endl;
+	std::cout << YELLOW <<"[ScavTrap] constructeur de copie de " << this->_Name << std::endl;
 }
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
@@ -35,12 +39,12 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 	this->Hit_points = other.Hit_points;
 	this->Energy_points = other.Energy_points;
 	this->Attack_damage = other.Attack_damage;
-	std::cout << YELLOW <<"[ScavTrap] constructeur d assignation de copie" << WHITE << std::endl;
+	std::cout << YELLOW <<"[ScavTrap] constructeur d assignation de " << this->_Name << WHITE << std::endl;
 	return(*this);
 }
 ScavTrap::~ScavTrap()
 {
-	std::cout << YELLOW <<"[ScavTrap] destructeur par default" << WHITE << std::endl;
+	std::cout << YELLOW <<"[ScavTrap] destructeur par defaut de " << this->_Name << WHITE << std::endl;
 }
 void ScavTrap::attack(const std::string& target)
 {
@@ -55,5 +59,5 @@ void ScavTrap::attack(const std::string& target)
 }
 void ScavTrap::guardGate(void)
 {
-	std::cout << YELLOW << getName() << " ScavTrap is now in GateKeeper mode." << WHITE << std::endl;
+	std::cout << YELLOW << "ScavTrap "<< this->_Name << " is now in GateKeeper mode." << WHITE << std::endl;
 }
