@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 12:42:52 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/03 14:16:30 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/04 10:27:39 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 void test01(void)
 {
-	std::cout << "\n********** test 01 **********" << std::endl;
 	ClapTrap T("Tom");
 	ScavTrap J("Jerry");
 	ScavTrap D;
 
 
 	J.attack(T.getName());
-	T.attack(J.getName());
 	T.attack(J.getName());
 	T.attack(D.getName());
 

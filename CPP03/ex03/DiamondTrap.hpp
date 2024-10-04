@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:30:55 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/03 13:59:58 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/04 10:11:44 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include"FragTrap.hpp"
 
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
 		std::string _Name;
