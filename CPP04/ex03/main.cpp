@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:17:57 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/02 17:59:27 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:05:42 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void test03()
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
+	src->learnMateria(new Ice());
 	ICharacter* me = new Character("me");
 	
 	AMateria* tmp;
@@ -68,6 +69,10 @@ void test03()
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
 	tmp = src->createMateria("cur");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);

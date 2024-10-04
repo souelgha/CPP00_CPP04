@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 17:43:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/01 10:23:15 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/03 17:56:21 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Dog::Dog(): Animal("Dog")
 Dog::Dog(const std::string type): Animal(type)
 {
 	this->_type= "Dog";
-	std::cout << "type Dog == " << this->_type << std::endl;
 	std::cout << MAGENTA << "[Dog] Constructeur avec parametres appele." << WHITE<< std::endl;
 }
 Dog::Dog(const Dog& other): Animal(other)

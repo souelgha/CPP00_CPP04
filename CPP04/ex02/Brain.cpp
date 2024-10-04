@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 12:21:32 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/01 10:55:42 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:13:57 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,12 @@ void Brain::setIdea(int index, std::string idea)
 	else 
 		std::cout << "Invalid index. Set not possible."<< std::endl;
 }
-void Brain::printIdeas(void)
+void Brain::printIdeas(void) const
 {
 	for (int i=0; i < 100 ; ++i)
 		std::cout << getIdea(i) << std::endl;
-		
+}
+const std::string* Brain::getIdeas() const 
+{
+	return ideas;  // Retourne un pointeur vers le tableau d'idées
 }

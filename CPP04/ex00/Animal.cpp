@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 14:59:46 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/09/25 14:02:44 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/04 11:12:21 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 Animal::Animal(): _type("Animal")
 {
-	std::cout << GREEN << "[Animal] Constructeur par defaut appele." << WHITE<< std::endl;
+	std::cout << GREEN << "[Animal] Defaulf constructor called " << WHITE<< std::endl;
 }
 Animal::Animal(const std::string type): _type(type)
 {
-	std::cout << GREEN << "[Animal] Constructeur avec parametres appele." << WHITE<< std::endl;
+	std::cout << GREEN << "[Animal] para constructor called." << WHITE<< std::endl;
 }
 Animal::Animal(const Animal& other)
 {
 	this->_type=other._type;
-	std::cout << GREEN << "[Animal] Constructeur par copie appele." << WHITE<< std::endl;
+	std::cout << GREEN << "[Animal] copy constructor called." << WHITE<< std::endl;
 }
 Animal& Animal::operator=(const Animal& other)
 {
 	if(this != &other)
 		this->_type = other._type;
-	std::cout << GREEN << "[Animal] Constructeur par assignation appele." << WHITE<< std::endl;
+	std::cout << GREEN << "[Animal] assign constructor called." << WHITE<< std::endl;
 	return(*this);
 }
 Animal::~Animal()
 {
-	std::cout << GREEN << "[Animal] Destructeur par defaut appele." << WHITE<< std::endl;
+	std::cout << GREEN << "[Animal] Default destructor called." << WHITE<< std::endl;
 }
 void Animal::makeSound(void) const
 {

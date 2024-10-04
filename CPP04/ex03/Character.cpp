@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:37:58 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/02 17:47:57 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/03 16:07:01 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void Character::equip(AMateria* m)
 		}
 	}
 	std::cout << GREEN << "Character " << this->_name << " has no slot available." << WHITE << std::endl;
+	delete m;
 }
 void Character::unequip(int idx)
 {

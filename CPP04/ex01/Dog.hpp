@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:07:28 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/01 11:01:22 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/03 18:00:35 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Dog : public Animal
 		Dog(std::string bete);
 		Dog(const Dog& other);
 		Dog& operator=(const Dog& other);
-		virtual ~Dog();
+		~Dog();
 		void makeSound() const;
 		Brain *getBrain() const;
 };
