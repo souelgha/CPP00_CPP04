@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 12:21:32 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/04 16:17:14 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/05 11:16:39 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,8 @@ void Brain::printIdeas(void)
 	for (int i=0; i < 5 ; ++i)
 		std::cout << getIdea(i) << std::endl;
 		
+}
+const std::string* Brain::getIdeas() const 
+{
+	return ideas;
 }

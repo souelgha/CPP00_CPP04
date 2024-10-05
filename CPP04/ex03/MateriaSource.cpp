@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:39:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/02 18:04:31 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:27:44 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,23 +73,22 @@ void MateriaSource::learnMateria(AMateria*materia)
 		if(Source[i] == NULL)
 		{
 			Source[i] = materia;
-			std::cout << YELLOW << "Materia added in index " << i << WHITE <<std::endl; 
 			return;
 		}					
 	}
-	std::cerr << YELLOW << " learnMateria is full! " << WHITE << std::endl;
+	std::cerr << YELLOW << "learnMateria is full! " << WHITE << std::endl;
 	delete materia;
 }
 AMateria* MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < 4 ; ++i)
 	{
-		if(type == Source[i]->getType())
+		if(type == Source[i]->getType() && this->Source[i])
 		{
-			std::cout << GREEN << "Materia type created " << WHITE << std::endl;
+			// std::cout << GREEN << "Materia type created " << WHITE << std::endl;
 			return(Source[i]->clone());
 		}
 	}
 	std::cerr << RED << "Materia type doesn't exist" << WHITE << std::endl;
-	return(NULL);	
+	return(0);	
 }

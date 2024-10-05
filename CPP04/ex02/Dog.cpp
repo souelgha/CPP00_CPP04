@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 17:43:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/01 11:02:49 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/05 11:28:13 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ Dog& Dog::operator=(const Dog& other)
 {
 	if(this != &other)
 	{
+		Animal::operator=(other);
 		delete DogBrain;
 		this->DogBrain = new Brain(*other.DogBrain);
-		Animal::operator=(other);
+		
 	}
 		
 	std::cout << MAGENTA << "[Dog]  assignment constructor with Brain." << WHITE<< std::endl;

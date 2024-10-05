@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:35:48 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/01 11:01:40 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/05 11:26:48 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ Cat& Cat::operator=(const Cat& other)
 {
 	if(this != &other)
 	{
-		delete CatBrain;
-		CatBrain = new Brain(*other.CatBrain);
 		Animal::operator=(other);
+		delete this->CatBrain;	
+		this->CatBrain = new Brain(*other.CatBrain);
 	}
 	std::cout << YELLOW << "[Cat] assignment constructor with Brain." << WHITE<< std::endl;
 	return(*this);

@@ -6,33 +6,35 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:37:58 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/03 16:07:01 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/05 18:28:38 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 
-Character::Character():_name("")
+Character::Character():_name("unknown")
 {
 	for (int i = 0; i < 4 ; ++i)
 		inventory[i]=NULL;
-	std::cout << "[Character] default constructor called" << std::endl;
+	std::cout << MAGENTA << "[Character] default constructor called" << WHITE << std::endl;
 }
 Character::Character(std::string name ):_name(name)
 {
 	for (int i = 0; i < 4 ; ++i)
 		inventory[i]=NULL;
-	std::cout << "[Character] para constructor called" << std::endl;
+	std::cout << MAGENTA << "[Character] para constructor called" << WHITE  << std::endl;
 }
 Character::~Character()
 {
 	for (int i = 0; i < 4 ; ++i)
 		delete inventory[i];
-	std::cout << "[Character] destructor called" << std::endl;
+	std::cout << MAGENTA << "[Character] destructor called" << WHITE << std::endl;
 }
 Character::Character(const Character& copy)
 {
+	std::cout << MAGENTA << "[Character] copy constructor called" << WHITE  << std::endl;
+	this->_name = copy._name;
 	for (int i = 0; i < 4 ; ++i)
 	{
 		if(inventory[i] != NULL)
@@ -40,12 +42,14 @@ Character::Character(const Character& copy)
 		else
 			this->inventory[i] = NULL;
 	}
-	std::cout << "[Character] copy constructor called" << std::endl;
+	
 }
 Character& Character::operator=(const Character &copy)
 {
+	std::cout << MAGENTA << "[Character] assign constructor called" << WHITE << std::endl;
 	if(this != &copy)
 	{	
+		this->_name = copy._name;
 		for(int i = 0; i <  4; ++i)
 		{
 			delete inventory[i];
@@ -53,13 +57,13 @@ Character& Character::operator=(const Character &copy)
 		}
 		for (int i = 0; i < 4 ; ++i)
 		{
-			if(inventory[i] != NULL)
+			if(this->inventory[i] != NULL)
 				this->inventory[i]= copy.inventory[i]->clone();
 			else
 				this->inventory[i] = NULL;
 		}
 	}
-	std::cout << "[Character] assign constructor called" << std::endl;
+	
 	return(*this);	
 }
 std::string const& Character::getName()const
@@ -73,11 +77,11 @@ void Character::equip(AMateria* m)
 		if(inventory[i] == NULL)
 		{
 			inventory[i] = m;
-			std::cout << GREEN << "Materia added to index " << i << " for " << this->_name<< WHITE<< std::endl;
+			// std::cout << MAGENTA << "Materia added to index " << i << " for " << this->_name<< WHITE<< std::endl;
 			return;
 		}
 	}
-	std::cout << GREEN << "Character " << this->_name << " has no slot available." << WHITE << std::endl;
+	std::cout << MAGENTA << "Character " << this->_name << " has no slot available." << WHITE << std::endl;
 	delete m;
 }
 void Character::unequip(int idx)
