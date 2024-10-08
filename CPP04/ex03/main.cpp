@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:17:57 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/05 18:39:15 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/08 19:31:43 by sonia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,43 +73,10 @@ void test02()
 	delete me;
 	
 }
+
 void test03()
 {
-	std::cout << "\n /********* test03: tests complementaires *********/" << std::endl;
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Ice());
-	ICharacter* me = new Character("Sonia");
-	
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-
-	ICharacter* bob = new Character("bob");
-	std::cout << "\n";
-	me->use(0, *bob);
-	me->use(1, *bob);
-	me->use(2, *bob);
-	me->use(3, *bob);
-	std::cout << "\n";
-
-	delete bob;
-	delete me;
-	delete src;
-}
-void test04()
-{
+	std::cout << "\n /********* test03: check avec 2 characters *********/" << std::endl;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -151,8 +118,9 @@ void test04()
 	delete src;
 	
 }
-void test05()
+void test04()
 {
+	std::cout << "\n /********* test04: check des constructors *********/" << std::endl;
 	Character *me = new Character("ToTo");
 	std::cout << "me 	: " << me->getName() << std::endl;
 	Character *clone = new Character(*me);
@@ -174,13 +142,51 @@ void test05()
 	delete clone;
 	delete girl;
 }
+static void test05(void)
+{
+	std::cout << "\n /********* test05: check unequip *********/" << std::endl;
+	
+	ICharacter *Act1 = new Character("Actor 1");
+	ICharacter *Act2 = new Character("Actor 2");
+	AMateria *ice = new Ice();
+
+	/* Filling Player 1's inventory */
+	Act1->equip(new Ice());
+	Act1->equip(ice);
+	Act1->equip(new Ice());
+	Act1->equip(new Cure());
+	// Act1->equip(new Cure()); // Over filling Player 1's inventory
+
+	/* Filling Player 2's inventory */
+	Act2->equip(new Cure());
+	Act2->equip(new Cure());
+	Act2->equip(new Ice());
+
+	/* Using materias */
+	Act1->use(0, *Act2);
+	Act1->use(1, *Act2);
+	Act1->use(3, *Act2);
+	Act2->use(2, *Act1);
+
+	/* Unequiping materia and use empty slot */
+	Act1->unequip(1);
+	Act1->use(1, *Act2);
+
+	/* Equiping new materia and use the filled slot */
+	Act1->equip(new Cure());
+	Act1->use(1, *Act2);
+
+	delete Act1;
+	delete Act2;
+	delete ice;
+}
 
 int main()
 {
-	test01();
+	// test01();
 	// test02();
 	// test03();
 	// test04();
-	// test05();
+	test05();
 	return(0);
 }
