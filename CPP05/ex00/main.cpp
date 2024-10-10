@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 13:38:00 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/09 11:24:02 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/10/10 11:39:48 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/10/10 16:57:32 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_H
-	#define ICHARACTER_H
+#include "Bureaucrat.hpp"
 
-#include "AMateria.hpp"
-
-class AMateria;
-
-class ICharacter
+int main()
 {
-	public:
-		virtual ~ICharacter(){};
-		virtual std::string const& getName () const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
-		virtual AMateria* getUnequipMat(int idx) const = 0;
-};
+	Bureaucrat buro("toto", 10);
 
-#endif
+	std::cout << buro << std::endl;
+	buro.DecrementGrade();
+	std::cout << buro << std::endl;
+	buro.IncrementGrade();
+	buro.IncrementGrade();
+	std::cout << buro << std::endl;
+}

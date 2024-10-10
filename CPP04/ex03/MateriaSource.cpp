@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:39:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/05 18:27:44 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/09 12:06:15 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ MateriaSource::MateriaSource()
 {
 	for(int i = 0; i < 4; ++i)
 		Source[i] = NULL;
-	std::cout << "[MateriaSource] default constructor called " << std::endl;
+	// std::cout << "[MateriaSource] default constructor called " << std::endl;
 }
 MateriaSource::MateriaSource(AMateria *src[4])
 {
@@ -29,7 +29,7 @@ MateriaSource::MateriaSource(AMateria *src[4])
 			Source[i] = NULL;
 	}
 		
-	std::cout << "[MateriaSource] para constructor called " << std::endl;
+	// std::cout << "[MateriaSource] para constructor called " << std::endl;
 }
 MateriaSource::MateriaSource(const MateriaSource& copy)
 {
@@ -40,7 +40,7 @@ MateriaSource::MateriaSource(const MateriaSource& copy)
 		else
 			Source[i] = NULL;
 	}		
-	std::cout << "[MateriaSource] copy constructor called " << std::endl;
+	// std::cout << "[MateriaSource] copy constructor called " << std::endl;
 }
 MateriaSource& MateriaSource::operator=(const MateriaSource& copy)
 {
@@ -56,14 +56,14 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& copy)
 		else
 			Source[i] = NULL;
 	}		
-	std::cout << "[MateriaSource] assignement constructor called " << std::endl;
+	// std::cout << "[MateriaSource] assignement constructor called " << std::endl;
 	return(*this);
 }
 MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4 ; ++i)
 		delete Source[i];
-	std::cout << "[MateriaSource] destructor called " << std::endl;
+	// std::cout << "[MateriaSource] destructor called " << std::endl;
 }
 void MateriaSource::learnMateria(AMateria*materia)
 {
@@ -89,6 +89,6 @@ AMateria* MateriaSource::createMateria(std::string const &type)
 			return(Source[i]->clone());
 		}
 	}
-	std::cerr << RED << "Materia type doesn't exist" << WHITE << std::endl;
+	std::cerr << RED << "\nMateria type doesn't exist\n" << WHITE << std::endl;
 	return(0);	
 }

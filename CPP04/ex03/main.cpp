@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sonia <sonia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:17:57 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/08 19:31:43 by sonia            ###   ########.fr       */
+/*   Updated: 2024/10/09 12:18:43 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,20 @@ void test01()
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
-	src->learnMateria(new Cure());
+
 	ICharacter* me = new Character("me");
-	
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	tmp = src->createMateria("iced");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	
 
 	ICharacter* bob = new Character("bob");
+	std::cout <<"\n";
 	me->use(0, *bob);
 	me->use(1, *bob);
-
+	std::cout <<"\n";
 	delete bob;
 	delete me;
 	delete src;
@@ -77,26 +73,28 @@ void test02()
 void test03()
 {
 	std::cout << "\n /********* test03: check avec 2 characters *********/" << std::endl;
+	
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Ice());
+
 	ICharacter* Actor1 = new Character("Tom");	
+	Actor1->equip(src->createMateria("ice"));	
+	Actor1->equip(src->createMateria("cure"));	
+	Actor1->equip(src->createMateria("cure"));	
+	Actor1->equip(src->createMateria("ice"));
+	/*** test materia n existant pas ***/
+	// Actor1->equip(src->createMateria("cur"));
+	/*** test inventaire plein  ***/
+	Actor1->equip(new Cure());
 
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	Actor1->equip(tmp);	
-	tmp = src->createMateria("cure");
-	Actor1->equip(tmp);	
-	tmp = src->createMateria("cure");
-	Actor1->equip(tmp);
-	tmp = src->createMateria("ice");
-	Actor1->equip(tmp);
-
+	Ice *iced = new Ice;
 	ICharacter* Actor2 = new Character("Jerry");
 	Actor2->equip(src->createMateria("cure"));
-	Actor2->equip(src->createMateria("ice"));
+	Actor2->equip(src->createMateria("cure"));
+	Actor2->equip(iced);
 
 	ICharacter* bob = new Character("bob");
 	std::cout <<"\n";
@@ -112,10 +110,26 @@ void test03()
 	Actor2->use(3, *Actor1);
 	std::cout <<"\n";
 
+	/* retire 1 materia et utilise le slot */
+	AMateria *tmp1;
+	tmp1 = Actor1->getUnequipMat(2);
+	Actor1->unequip(2);
+	std::cout<< "apres unequip:" << std::endl;
+	Actor1->use(2, *Actor2);
+	std::cout <<"\n";
+	
+	/*equip le character d un materia sur le slot vide */
+	std::cout<< "apres new equip:" << std::endl;
+	Actor1->equip(new Cure());
+	std::cout <<"\n";
+	Actor1->use(2, *Actor2);
+	std::cout <<"\n";
+
 	delete bob;
 	delete Actor1;
 	delete Actor2;
 	delete src;
+	delete tmp1;
 	
 }
 void test04()
@@ -126,7 +140,7 @@ void test04()
 	Character *clone = new Character(*me);
 	std::cout << "clone	: " << clone->getName() << std::endl;
 	Character *girl = new Character("Barbie");	
-	std::cout << "girl	: " << girl->getName() << std::endl;\
+	std::cout << "girl	: " << girl->getName() << std::endl;
 	
 	std::cout << "\n/***** assignment characters ********/" << std::endl;
 	*me = *girl;
@@ -136,49 +150,9 @@ void test04()
 	std::cout << "girl	: " << girl->getName() << std::endl;
 	std::cout << "clone	: " << clone->getName() << std::endl;
 	
-
-
 	delete me;
 	delete clone;
 	delete girl;
-}
-static void test05(void)
-{
-	std::cout << "\n /********* test05: check unequip *********/" << std::endl;
-	
-	ICharacter *Act1 = new Character("Actor 1");
-	ICharacter *Act2 = new Character("Actor 2");
-	AMateria *ice = new Ice();
-
-	/* Filling Player 1's inventory */
-	Act1->equip(new Ice());
-	Act1->equip(ice);
-	Act1->equip(new Ice());
-	Act1->equip(new Cure());
-	// Act1->equip(new Cure()); // Over filling Player 1's inventory
-
-	/* Filling Player 2's inventory */
-	Act2->equip(new Cure());
-	Act2->equip(new Cure());
-	Act2->equip(new Ice());
-
-	/* Using materias */
-	Act1->use(0, *Act2);
-	Act1->use(1, *Act2);
-	Act1->use(3, *Act2);
-	Act2->use(2, *Act1);
-
-	/* Unequiping materia and use empty slot */
-	Act1->unequip(1);
-	Act1->use(1, *Act2);
-
-	/* Equiping new materia and use the filled slot */
-	Act1->equip(new Cure());
-	Act1->use(1, *Act2);
-
-	delete Act1;
-	delete Act2;
-	delete ice;
 }
 
 int main()
@@ -187,6 +161,5 @@ int main()
 	// test02();
 	// test03();
 	// test04();
-	test05();
 	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:37:58 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/05 18:28:38 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/09 12:05:34 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@ Character::Character():_name("unknown")
 {
 	for (int i = 0; i < 4 ; ++i)
 		inventory[i]=NULL;
-	std::cout << MAGENTA << "[Character] default constructor called" << WHITE << std::endl;
+	// std::cout << MAGENTA << "[Character] default constructor called" << WHITE << std::endl;
 }
 Character::Character(std::string name ):_name(name)
 {
 	for (int i = 0; i < 4 ; ++i)
 		inventory[i]=NULL;
-	std::cout << MAGENTA << "[Character] para constructor called" << WHITE  << std::endl;
+	// std::cout << MAGENTA << "[Character] para constructor called" << WHITE  << std::endl;
 }
 Character::~Character()
 {
 	for (int i = 0; i < 4 ; ++i)
 		delete inventory[i];
-	std::cout << MAGENTA << "[Character] destructor called" << WHITE << std::endl;
+	// std::cout << MAGENTA << "[Character] destructor called" << WHITE << std::endl;
 }
 Character::Character(const Character& copy)
 {
-	std::cout << MAGENTA << "[Character] copy constructor called" << WHITE  << std::endl;
+	// std::cout << MAGENTA << "[Character] copy constructor called" << WHITE  << std::endl;
 	this->_name = copy._name;
 	for (int i = 0; i < 4 ; ++i)
 	{
@@ -46,7 +46,7 @@ Character::Character(const Character& copy)
 }
 Character& Character::operator=(const Character &copy)
 {
-	std::cout << MAGENTA << "[Character] assign constructor called" << WHITE << std::endl;
+	// std::cout << MAGENTA << "[Character] assign constructor called" << WHITE << std::endl;
 	if(this != &copy)
 	{	
 		this->_name = copy._name;
@@ -81,7 +81,7 @@ void Character::equip(AMateria* m)
 			return;
 		}
 	}
-	std::cout << MAGENTA << "Character " << this->_name << " has no slot available." << WHITE << std::endl;
+	std::cout << MAGENTA << "Character " << this->_name << " has no slot available.\n" << WHITE << std::endl;
 	delete m;
 }
 void Character::unequip(int idx)
@@ -98,3 +98,10 @@ void Character::use(int idx, ICharacter& target)
 	else
 		std::cerr << RED << "Invalid index or nothing inside. "<< WHITE << std::endl;
 }
+AMateria* Character::getUnequipMat(int idx) const
+{
+	if(idx >=0 && idx < 4 && inventory[idx] != NULL)
+		return(inventory[idx]);
+	std::cout <<" No Materia found at this index : " << idx << std::endl;
+	return(NULL);
+	}

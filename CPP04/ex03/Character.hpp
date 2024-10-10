@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:38:00 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/02 16:13:28 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/09 11:16:35 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target) ;
+		AMateria* getUnequipMat(int idx) const;
 
 };
 #endif
