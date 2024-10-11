@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:37:55 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/11 18:13:54 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:16:24 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,7 @@ void Bureaucrat::DecrementGrade()
 	if(_grade > LOWEST)
 		throw Bureaucrat::GradeTooLowException();
 }
-std::ostream& operator<<(std::ostream& os, Bureaucrat& buro)
-{
-	os << buro.getName() << ", bureaucrat grade " << buro.getGrade();
-	return(os);
-}
+
 const char* Bureaucrat::GradeTooHighException::what() const throw() 
 {
     return "TooHighException";
@@ -75,3 +71,13 @@ const char*  Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "TooLowException";
 }
+std::ostream& Bureaucrat::operator<<(std::ostream& os)
+{
+	os << this->_name << ", bureaucrat grade " << this->_grade;
+	return(os);
+}
+// std::ostream& operator<<(std::ostream& os, Bureaucrat& buro)
+// {
+// 	os << buro.getName() << ", bureaucrat grade " << buro.getGrade();
+// 	return(os);
+// }

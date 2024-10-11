@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:04:58 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/11 13:31:14 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:16:31 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Bureaucrat
 	private:
 		std::string const _name;
 		unsigned int _grade;
+		
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string name, unsigned int grade);
@@ -45,6 +46,7 @@ class Bureaucrat
 
 		std::string getName() const;
 		unsigned int getGrade() const;
+		std::ostream& operator<<(std::ostream& os);
 		
 		class GradeTooHighException : public std::exception 
 		{
@@ -58,6 +60,6 @@ class Bureaucrat
 		};
 };
 
-std::ostream& operator<<(std::ostream& os,Bureaucrat & buro);
+// std::ostream& operator<<(std::ostream& os,Bureaucrat & buro);
 
 #endif
