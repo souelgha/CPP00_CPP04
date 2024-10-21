@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:04:58 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/11 18:16:31 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/21 12:17:30 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <exception>
+#include"Form.hpp"
 
 #define HIGHEST 1
 #define LOWEST 150
@@ -27,7 +28,7 @@
 #define CYAN "\033[0;36m"
 #define WHITE "\033[0;37m"
 
-
+class Form;
 class Bureaucrat
 {
 	private:
@@ -47,7 +48,8 @@ class Bureaucrat
 		std::string getName() const;
 		unsigned int getGrade() const;
 		std::ostream& operator<<(std::ostream& os);
-		
+		void signForm(Form& paper);
+
 		class GradeTooHighException : public std::exception 
 		{
             public:
@@ -60,6 +62,5 @@ class Bureaucrat
 		};
 };
 
-// std::ostream& operator<<(std::ostream& os,Bureaucrat & buro);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:52:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/11 19:02:13 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/21 11:50:37 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 #include "Bureaucrat.hpp"
 
+
 #define TOSIGNED 1
 #define TOEXECUTE 150
+
+class Bureaucrat;
 
 class Form
 {
@@ -39,6 +42,7 @@ class Form
 		bool getStatus() const;
 
 		void beSigned(Bureaucrat& buro);
+
 		class GradeTooLowException: public std::exception
 		{	
 			public:
