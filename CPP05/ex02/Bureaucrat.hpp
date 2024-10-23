@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:04:58 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 10:32:34 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:50:46 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ class Bureaucrat
 
 		std::string getName() const;
 		unsigned int getGrade() const;
-
-		std::ostream& operator<<(std::ostream& os);
 		
 		void signForm(AForm & paper);
 		void executeForm(AForm const & paper);
@@ -64,6 +62,7 @@ class Bureaucrat
        			const char *what() const throw();
 		};
 };
+std::ostream& operator<<(std::ostream& os,Bureaucrat & buro);
 
 
 #endif

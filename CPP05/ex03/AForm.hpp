@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:52:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 11:30:54 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:55:30 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class AForm
 		void beSigned(Bureaucrat& buro);		
 		void execute(Bureaucrat const & executor) const;
 		virtual void action() const = 0;
+		virtual AForm* clone(std::string target) const = 0;
 
 		class GradeTooLowException: public std::exception
 		{	

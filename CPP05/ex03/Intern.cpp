@@ -6,14 +6,23 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:05:50 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 18:54:41 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:03:53 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-Intern::Intern(){}
-Intern::~Intern(){}
+Intern::Intern()
+{
+	this->form[0]= new ShrubberyCreationForm();
+	this->form[1]= new RobotomyRequestForm();
+	this->form[2]= new PresidentialPardonForm();
+}
+Intern::~Intern()
+{
+	for(int i = 0; i < 3; ++i)
+		delete form[i];	
+}
 Intern::Intern(Intern& copy)
 {
 	(void)copy;
@@ -27,24 +36,25 @@ const char* Intern::FormDoesntExist::what() const throw()
 {
     return "The requested form doesn't exist.";
 }
-AForm* Intern::makeForm(std::string const FormName, std::string const target)
+AForm* Intern::makeForm(std::string FormName, std::string target)
 {
-	std::string TabName[3]=
-		{"Shrubbery Creation", 
-		"Robotomy Request", 
-		"Presidential Pardon"};
-	AForm *AForm[3]=
-		{ new ShrubberyCreationForm(target), 
-		new RobotomyRequestForm(target), 
-		new PresidentialPardonForm(target)};
-	
-	for(int i= 0; i < 3; ++i)
-		{
-			if(TabName[i] == FormName)
-				{
-					std::cout<<"Intern creates " << FormName;
-					return(AForm[i]);
-				}
-		}
-	throw Intern::FormDoesntExist();
+	try
+	{
+		std::string TabName[3]=	{"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+		
+		for(int i= 0; i < 3; ++i)
+			{
+				if(TabName[i] == FormName)
+					{
+						std::cout<<"Intern creates " << target << std::endl;
+						return(this->form[i]->clone(target));
+					}
+			}
+		throw Intern::FormDoesntExist();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << e.what() << WHITE<< std::endl;
+	}
+	return(NULL); 
 }

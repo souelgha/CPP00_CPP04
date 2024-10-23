@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++98 -Wall -Wextra -Werror -g3
 CXX = c++
 
 SRC = 	main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-		RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+		RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 OBJ=$(SRC:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:04:58 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/21 12:17:30 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:45:22 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ class Bureaucrat
 
 		std::string getName() const;
 		unsigned int getGrade() const;
-		std::ostream& operator<<(std::ostream& os);
 		void signForm(Form& paper);
 
 		class GradeTooHighException : public std::exception 
@@ -61,6 +60,6 @@ class Bureaucrat
        			const char *what() const throw();
 		};
 };
-
+	std::ostream& operator<<(std::ostream& os, Bureaucrat &buro);
 
 #endif

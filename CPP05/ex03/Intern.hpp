@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:33:22 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 18:53:20 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:01:56 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,27 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+class AForm;
+
 class Intern
 {
+	private:
+		AForm *form[3];
+
 	public:
 		Intern();
 		~Intern();
 		Intern(Intern& copy);
 		Intern& operator=(Intern& copy);
 
-		AForm* makeForm(std::string const FormName, std::string const target);
+		AForm* makeForm(std::string FormName, std::string target);
+		
 		class FormDoesntExist: public std::exception
 		{
 			public:
 				const char *what() const throw();
 		};
+
 };
 
 #endif

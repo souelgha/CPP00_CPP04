@@ -6,35 +6,34 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:13:47 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 12:19:03 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:55:40 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include"AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp" // sign 145, exec 137
+#include "RobotomyRequestForm.hpp" // sign 72, exec 45
+#include "PresidentialPardonForm.hpp" // sign 25 exec 5
+#include "Intern.hpp"
 
 void test01()
 {
-	std::cout << "\n/***** test01 : ShrubberyCreationForm *****/\n" << std::endl;
+	std::cout << "\n/***** test01 : PresidentialPardonForm *****/\n" << std::endl;
 	try
 	{
-		Bureaucrat sign1("Sign1",146);
-		Bureaucrat DoIt1("Executor1",158);
-		sign1 << std::cout;
-		DoIt1 << std::cout;
-		ShrubberyCreationForm test("HOME"); // sign 145, exec 137
-		std::cout << test;
-		sign1.signForm(test);
-		DoIt1.executeForm(test);
-		sign1.IncrementGrade();
-		sign1.signForm(test);
-		DoIt1.executeForm(test);
-		DoIt1.IncrementGrade();
-		sign1.signForm(test);
-		DoIt1.executeForm(test);
+		Bureaucrat sign1("Sign1",20);
+		Bureaucrat DoIt1("Executor1",3);	
+		Intern someRandomIntern;
+		AForm* Help;
+		Help = someRandomIntern.makeForm("PresidentialPardonForm", "Help");
+		std::cout << *Help;
+		std::cout << sign1;
+		std::cout << DoIt1;
+		sign1.signForm(*Help);
+		DoIt1.executeForm(*Help);
+
+		delete Help;
 	}
 	catch(const std::exception& e)
 	{
@@ -48,20 +47,18 @@ void test02()
 	
 	try
 	{
-		Bureaucrat sign("Sign2",73);	
-		Bureaucrat DoIt("Executor2",46);
-		sign << std::cout;
-		DoIt << std::cout;
-		RobotomyRequestForm Robot("IRobot"); // sign 72, exec 45
+		Bureaucrat sign("Sign2",70);	
+		Bureaucrat DoIt("Executor2",6);		
+		Intern someRandomIntern;
+		AForm* Robot;
+		Robot = someRandomIntern.makeForm("RobotomyRequestForm", "Robot");;
 		std::cout << Robot;
-		sign.signForm(Robot);
-		DoIt.executeForm(Robot);
-		sign.IncrementGrade();
-		sign.signForm(Robot);
-		DoIt.executeForm(Robot);
-		DoIt.IncrementGrade();
-		sign.signForm(Robot);
-		DoIt.executeForm(Robot);
+		std::cout << sign;
+		std::cout << DoIt;
+		sign.signForm(*Robot);
+		DoIt.executeForm(*Robot);
+
+		delete Robot;
 	}
 	catch(const std::exception& e)
 	{
@@ -71,23 +68,21 @@ void test02()
 }
 void test03()
 {
-	std::cout << "\n/***** test03 : PresidentialPardonForm *****/\n" << std::endl;
+	std::cout << "\n/***** test03 : ShrubberyCreationForm *****/\n" << std::endl;
 	try
 	{
-		Bureaucrat sign1("Sign1",10);
-		Bureaucrat sign2("Sign2",30);		
-		Bureaucrat DoIt1("Executor1",10);
-		Bureaucrat DoIt2("Executor2",4);
-		sign1 << std::cout;
-		sign2 << std::cout;
-		DoIt1 << std::cout;
-		DoIt2 << std::cout;
-		PresidentialPardonForm Work("Worker"); // sign 25 exec 5
-		std::cout << Work;
-		sign1.signForm(Work);
-		DoIt1.executeForm(Work);
-		sign2.signForm(Work);
-		DoIt2.executeForm(Work);
+		Bureaucrat sign1("Sign1",147);	
+		Bureaucrat DoIt1("Executor1",30);
+		Intern someRandomIntern;
+		AForm* Bender;
+		Bender = someRandomIntern.makeForm("ShrubberyCreationForm", "Bender");
+		std::cout << *Bender;
+		std::cout << sign1;
+		std::cout << DoIt1;	
+		sign1.signForm(*Bender);
+		DoIt1.executeForm(*Bender);
+		
+		delete Bender;
 	}
 	catch(const std::exception& e)
 	{
@@ -95,11 +90,28 @@ void test03()
 	}
 		
 }
+void test04()
+{	
+	std::cout << "\n/***** test04 : Intern tasks *****/\n" << std::endl;
 
+	Intern someRandomIntern;
+	AForm *doc1, *doc2, *doc3, *doc4 ;
+	doc1 = someRandomIntern.makeForm("PresidentialPardonForm", "Help");
+	doc2 = someRandomIntern.makeForm("RobotomyRequest", "toto");
+	doc3 = someRandomIntern.makeForm("ShrubberyCreationForm", "Shrubbery");
+	doc4 = someRandomIntern.makeForm("RobotomyRequestForm", "Robot");
+	
+	delete doc1;
+	delete doc2;
+	delete doc3;
+	delete doc4;
+		
+}
 int main()
 {
 	test01();
 	test02();
 	test03();
+	test04();
 	return(0);
 }

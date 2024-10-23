@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:52:59 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 11:30:54 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:59:34 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,9 +100,7 @@ void AForm::execute(Bureaucrat const & executor)const
 			std::cerr << RED << executor.getName();
 			std::cerr << " can't execute " << this->_name;
 			std::cerr << " because " <<  e.what() << WHITE<< std::endl;
-	
 		}
-		
 	}
 	else
 		std::cout << this->_name <<" Form is not yet signed! Sign it before !" << std::endl;

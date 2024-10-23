@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:37:55 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/21 14:23:57 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:45:26 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,6 @@ const char*  Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "TooLowException";
 }
-std::ostream& Bureaucrat::operator<<(std::ostream& os)
-{
-	os << this->_name << ", bureaucrat grade " << this->_grade << "\n";
-	return(os);
-}
 void Bureaucrat::signForm(Form& paper)
 {
 	paper.beSigned(*this);
@@ -86,4 +81,9 @@ void Bureaucrat::signForm(Form& paper)
 		std::cout << " couldn't sign " << paper.getName();
 		std::cout << " because " << this->_grade << " is too low Grade!" << WHITE << std::endl;
 	}
+}
+std::ostream& operator<<(std::ostream& os, Bureaucrat & buro)
+{
+	os << buro.getName() << ", bureaucrat grade " << buro.getGrade() << "\n";
+	return(os);
 }

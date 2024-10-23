@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:39:48 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 12:23:03 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:46:23 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ void test01()
 		std::cout << "\n/***** test01 *****/\n" << std::endl;
 		Bureaucrat J("Jerry",4);
 		Form paper("RedPpaper", 3, 140);
-		std::cout << YELLOW << paper;
-		J << std::cout;
+		std::cout << J;
 		J.signForm(paper);
 		J.IncrementGrade();
-		std::cout << YELLOW ;
-		J << std::cout;
+		std::cout << J;
 		J.signForm(paper);
+
 	}
 	catch(const std::exception& e)
 	{

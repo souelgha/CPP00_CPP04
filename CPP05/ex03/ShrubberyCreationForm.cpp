@@ -6,13 +6,14 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:25:49 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/22 11:17:41 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 17:56:17 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include<fstream>
 
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("unknown" , 145, 137){}
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const target): AForm(target , 145, 137)
 {}
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& copy): AForm(copy){}
@@ -37,4 +38,8 @@ void ShrubberyCreationForm::action() const
 	dest << " /  ___  \\\n";
 	dest << "/  |||||  \\\n";
 	dest.close();
+}
+ShrubberyCreationForm* ShrubberyCreationForm::clone(std::string target) const 
+{
+	return(new ShrubberyCreationForm(target));
 }

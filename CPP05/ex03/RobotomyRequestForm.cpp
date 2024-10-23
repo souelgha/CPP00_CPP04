@@ -6,12 +6,13 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:26:25 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/21 17:42:27 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/23 18:01:13 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm():AForm("unknown", 72, 45) {}
 RobotomyRequestForm::RobotomyRequestForm(std::string const target):AForm(target, 72, 45) {}
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & target): AForm(target){}
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm & target)
@@ -30,4 +31,8 @@ void RobotomyRequestForm::action()const
 		std::cout << this->getName() << " has been robotomized successfully." << std::endl;
 	else
 		std::cout << this->getName() << " has failed to be robotomized." << std::endl;
+}
+RobotomyRequestForm* RobotomyRequestForm::clone(std::string target) const
+{
+	return(new RobotomyRequestForm(target));
 }
