@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:52:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/23 17:55:30 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:24:47 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 	#define AFORM_H
 
 #include "Bureaucrat.hpp"
-
-
-#define TOSIGNED 1
-#define TOEXECUTE 150
 
 class Bureaucrat;
 

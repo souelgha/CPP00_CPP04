@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:05:50 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/23 18:03:53 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:24:50 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@ Intern::Intern()
 Intern::~Intern()
 {
 	for(int i = 0; i < 3; ++i)
-		delete form[i];	
+		delete form[i];
 }
-Intern::Intern(Intern& copy)
+Intern::Intern(const Intern& copy)
 {
 	(void)copy;
+	this->form[0]= new ShrubberyCreationForm();
+	this->form[1]= new RobotomyRequestForm();
+	this->form[2]= new PresidentialPardonForm();
+
 }
-Intern& Intern::operator=(Intern& copy)
+Intern& Intern::operator=(const Intern& copy)
 {
 	(void)copy;
 	return(*this);

@@ -6,19 +6,34 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:52:59 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/23 15:59:34 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:25:56 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm():
-	_name("unknown_AForm"), _status(false),_gradeToSigned(TOSIGNED), _gradeToExecute(TOEXECUTE) {}
+	_name("unknown_AForm"), _status(false),_gradeToSigned(LOWEST), _gradeToExecute(LOWEST) 
+	{
+		if(this->_gradeToSigned < HIGHEST || this->_gradeToExecute < HIGHEST)
+			throw GradeTooHighException();
+		if(this->_gradeToSigned > LOWEST || this->_gradeToExecute > LOWEST)
+			throw GradeTooLowException();
+	}
 AForm::AForm(std::string name, unsigned int tosigned, unsigned int toexec):
-	_name(name), _status(0),_gradeToSigned(tosigned), _gradeToExecute(toexec){}
+	_name(name), _status(false),_gradeToSigned(tosigned), _gradeToExecute(toexec)
+	{
+		if(this->_gradeToSigned < HIGHEST || this->_gradeToExecute < HIGHEST)
+			throw GradeTooHighException();
+		if(this->_gradeToSigned > LOWEST || this->_gradeToExecute > LOWEST)
+			throw GradeTooLowException();
+	}
 AForm::~AForm(){}
 AForm::AForm(const AForm& copy):
-	_gradeToSigned(copy._gradeToSigned), _gradeToExecute(copy._gradeToExecute){}
+	_name(copy._name), _status(false),_gradeToSigned(copy._gradeToSigned), _gradeToExecute(copy._gradeToExecute)
+{
+		*this=copy;
+}
 AForm& AForm::operator=(const AForm& copy)
 {
 	(void)copy;
@@ -51,11 +66,11 @@ std::ostream& operator<<(std::ostream& os, AForm & infos)
 }
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return("Grade Too High to signed!");
+	return("Grade Too High !");
 }
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return("Grade Too Low to Signed! ");
+	return("Grade Too Low ! ");
 }
 void AForm::beSigned(Bureaucrat& buro)
 {

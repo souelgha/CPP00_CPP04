@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:33:22 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/23 18:01:56 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:07:56 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Intern
 	public:
 		Intern();
 		~Intern();
-		Intern(Intern& copy);
-		Intern& operator=(Intern& copy);
+		Intern(const Intern& copy);
+		Intern& operator=(const Intern& copy);
 
 		AForm* makeForm(std::string FormName, std::string target);
 		

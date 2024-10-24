@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:39:48 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/11 13:27:39 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 10:05:18 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void test01()
 
 void test02()
 {
-	std::cout << "/***** test02: grade = 0 *****/" << std::endl;
+	std::cout << "/***** test02: High grade = 0 *****/" << std::endl;
 	try
 	{
 		Bureaucrat T("Tom",0);
@@ -43,7 +43,7 @@ void test02()
 }
 void test03()
 {
-	std::cout << "/***** test03: grade = 160 *****/" << std::endl;
+	std::cout << "/***** test03: low grade = 160 *****/" << std::endl;
 	try
 	{
 		Bureaucrat T("Tom",160);

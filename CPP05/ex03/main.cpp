@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:13:47 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/23 18:55:40 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:30:54 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void test02()
 		Intern someRandomIntern;
 		AForm* Robot;
 		Robot = someRandomIntern.makeForm("RobotomyRequestForm", "Robot");;
-		std::cout << Robot;
+		std::cout << *Robot;
 		std::cout << sign;
 		std::cout << DoIt;
 		sign.signForm(*Robot);
@@ -71,7 +71,7 @@ void test03()
 	std::cout << "\n/***** test03 : ShrubberyCreationForm *****/\n" << std::endl;
 	try
 	{
-		Bureaucrat sign1("Sign1",147);	
+		Bureaucrat sign1("Sign1",148);	
 		Bureaucrat DoIt1("Executor1",30);
 		Intern someRandomIntern;
 		AForm* Bender;

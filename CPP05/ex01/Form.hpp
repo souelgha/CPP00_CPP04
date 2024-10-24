@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:52:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/21 11:50:37 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:20:34 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 #include "Bureaucrat.hpp"
 
-
-#define TOSIGNED 1
-#define TOEXECUTE 150
 
 class Bureaucrat;
 

@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 15:37:55 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/23 18:45:26 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/24 11:37:26 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void Bureaucrat::signForm(Form& paper)
 	{
 		std::cout << RED << this->_name ;
 		std::cout << " couldn't sign " << paper.getName();
-		std::cout << " because " << this->_grade << " is too low Grade!" << WHITE << std::endl;
+		std::cout << " because " << this->_grade << " his too low Grade!" << WHITE << std::endl;
 	}
 }
 std::ostream& operator<<(std::ostream& os, Bureaucrat & buro)
