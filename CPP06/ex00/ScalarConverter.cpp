@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:19:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/26 18:24:01 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:32:25 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,106 +16,96 @@ ScalarConverter::~ScalarConverter(){}
 
 bool ExcepType(std::string type)
 {
-	std::string exceptype[6]={ "-inf", "+inf", "nan", "-inff", "+inff", "nanf"};
-	for(int i = 0; i< 6; ++i)
+	std::string exceptype[7]={ "-inf", "+inf", "nan", "inf", "-inff", "+inff", "nanf"};
+	for(int i = 0; i< 7; ++i)
 	{
 		if(type.compare(exceptype[i])== 0)
-				return(true);
+		{
+			std::cout<< "char: impossible" << std::endl;
+			std::cout<< "int: impossible" << std::endl;
+			if (i < 4)
+			{	std::cout<< "float: "  << exceptype[i] << "f"<< std::endl;
+				std::cout<< "double: " << exceptype[i] << std::endl;
+			}
+			else
+			{
+				std::cout<< "float: "  << exceptype[i] << std::endl;
+				std::size_t pos = exceptype[i].find_last_of("f");
+				std::string str= exceptype[i].substr(0, pos);
+				std::cout<< "double: " << str << std::endl;
+			}
+			return(true);
+		}				
 	}
 	return(false);
 }
 std::string IsChar(std::string type)
 {
 	std::string ToChar="";
+
+	float Tof= std::atof(type.c_str());
+	char c= static_cast<char>(Tof);
+
 	if(!std::isdigit(type[0]) &&(type.length() == 1))
-	{
-		ToChar= "char: '" + static_cast<char>(type[0]);
-		ToChar+="'";
-		return(ToChar);
-	}
-	int ToInt= std::atoi(type.c_str());
-	if(ToInt <32 || ToInt >126)
-		ToChar = "Non displayable";	
-	else if ((ExcepType(type)) ||(!std::isdigit(type[0]) &&(type.length() == 2)))
-	{
-		std::cout << "char: impossible" << std::endl;
-		ToChar = "impossible";
-	}
+		ToChar = static_cast<char>(type[0]);
+	else if ((!std::isdigit(type[0]) &&(type.length() > 1)))
+		return("impossible");
+	else if(!std::isprint(c))
+		return("Non displayable");
 	else
-	{
-		ToChar= "char: '" + static_cast<char>(ToInt);
-		ToChar+="'";
-	}
+		ToChar = static_cast<char>(Tof);
 	return ToChar;
 }
-void IsInt(std::string type)
-{
-	if (ExcepType(type))
-		std::cout << "int : impossible" << std::endl;
-	else if(std::isdigit(type[0]) || type[0] =='+' || type[0]=='-')
-	{
-		int ToInt= std::atoi(type.c_str());
-		std::cout<< "int: " << ToInt<<std::endl;
-	}
-	else
-		std::cout << "int: impossible" << std::endl;
-}
+
 void ScalarConverter::Convert(const std::string &type)
 {
-	
-	// char convToChar;
-	// int convToInt = 0;
-	// float convToFloat = 0;
-	// double convToDouble = 0;
+	if(ExcepType(type))
+		return;	
+	if(type.length() > 1)
+	{
+		if(std::isalpha(type[0]) && (std::isalnum(type[1]) || type[1]=='.'))
+		{
+			std::cout<< "invalid arguments!" << std::endl;
+			return;
+		}
+		for (size_t i = 1; i < type.length() -1; i++)
+		{
+			if(std::isalpha(type[i]))
+			{
+				std::cout<< "invalid arguments!" << std::endl;
+				return;
+			}
+		}
+		if(std::isalpha(type[type.length()-1]) && (type[type.length()-1] != 'f') && (type[type.length()-1] != 'F'))
+		{
+			std::cout<< "invalid arguments!"<< type[type.length()-1] << std::endl;
+			return;
+		}		
+	}
+	float convToFloat = 0;
+	double convToDble=  0;
+	int convToInt = 0;
 
-	// std::string imp= "impossible";
-	
-	std::cout<< "type length: "<< type.length()<<'\n';
-	std::cout<< "char:" << IsChar(type);
-	IsInt(type);
-	
-	
-	// // else 
-	// // 	std::cout<< "char: " << imp<<std::endl;
-	// if(!(std::isdigit(type[0])))
-	// {
-	// 	std::cout<< "int: " <<imp<< std::endl;
-	// 	for(int i = 0; i< 3; ++i)
-	// 	{
-	// 		if(type.compare(exceptype[i])== 0)
-	// 			{
-	// 				std::cout<< "float: " << type<<"f" <<std::endl;
-	// 				std::cout<<"double: " <<type<<std::endl;
-	// 				return;
-	// 			}
-	// 	}
-	// 	std::cout<< "float: " << imp <<std::endl;
-	// 	std::cout<<"double: " <<imp <<std::endl;
-	// 	return;
-	// }	
-	// convToInt= std::atoi(type.c_str());
-	
-	// std::istringstream(type) >> convToInt;
-	// std::cout<< "int: " <<convToInt<< std::endl;
+	if((IsChar(type).compare("impossible") != 0) && (IsChar(type).compare("Non displayable") != 0) && type.length() == 1)
+	{
+		std::cout<< "char: '" << IsChar(type)<< "'" << std::endl;
+		convToInt= static_cast<int>(type[0]);
+		convToDble= static_cast<double>(type[0]);
+		convToFloat = static_cast<float>(type[0]);
 
-	// if(type[type.length() - 1] == 'f')
-	// {
-
-	// }
+	}
+	else 
+	{
+		if((IsChar(type).compare("impossible") != 0) && (IsChar(type).compare("Non displayable") != 0))
+			std::cout<< "char: '" << IsChar(type)<< "'" << std::endl;
+		else
+			std::cout<< "char: " << IsChar(type)<<std::endl;
+		convToFloat = std::atof(type.c_str());
+		convToInt=  static_cast<int>(convToFloat);
+		convToDble= static_cast<double>(convToFloat);
+	}
 	
-	// for(int i = 0; i< type.length(); ++i)
-	// {
-	// 	if(isalpha(type[i]))
-	// }
-	
-	// {
-	// 	std::cout<< "char: " << "Nom displayable" <<std::endl;
-
-	// }
-	
-
+	std::cout<< "int: " << convToInt <<std::endl;
+	std::cout<< "float: " << std::fixed<< std::setprecision(1)<< convToFloat << "f"<<std::endl;
+	std::cout<< "double: " << std::fixed << std::setprecision(1) << convToDble <<std::endl;
 }
-// convToInt= static_cast<int>(type[0]);
-		// convToFloat= static_cast<float>(type[0]);
-// std::cout<< convToChar <<std::endl;
-// 		convToDouble= static_cast<double>(type[0]);

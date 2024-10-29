@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 10:46:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/26 15:04:22 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:10:58 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 {
 	if(argc != 2)
 	{
-		std::cout << "too few arguments"<< std::endl;
+		std::cout << "nb arguments invalid"<< std::endl;
 		return(1);
 	}
 		

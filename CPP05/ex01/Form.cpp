@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 13:52:59 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/24 11:33:37 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/28 16:10:03 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void Form::beSigned(Bureaucrat& buro)
 	if(this->_status == true)
 	{
 		std::cout << this->_name <<" Form is already signed. " << std::endl;
+		return;
 	}
 	try 
 	{

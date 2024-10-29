@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:57:32 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/26 15:17:49 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/29 11:44:40 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include<cctype>
 #include<sstream>
 #include<cstdlib>
+#include<string> 
+#include<iomanip>
 
 
 class ScalarConverter
