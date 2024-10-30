@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 10:46:56 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/29 16:45:02 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/10/29 16:53:21 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/10/30 14:09:43 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-#include <iostream>
+#ifndef SERIALIZER_H
+	#define SERIALIZER_H
 
-int main(int argc, char **argv)
+#include<iostream>
+#include<stdint.h>
+
+typedef struct Data
 {
-	if(argc != 2)
-	{
-		std::cout << "nb arguments invalid"<< std::endl;
-		return(1);
-	}	
-	ScalarConverter::Convert(argv[1]);
-	return(0);
-}
+	int data1;
+	int data2;
+
+}Data;
+class Serializer
+{
+	private :
+	Serializer();
+	~Serializer();
+	Serializer(const Serializer& copy);
+	Serializer& operator=(const Serializer& copy);
+		
+	public:
+		static uintptr_t serialize(Data *ptr);
+		static Data* deserialize(uintptr_t raw);
+
+
+};
+
+
+
+#endif
