@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:25:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/30 18:51:09 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:25:05 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void identify(Base *p)
 	else if(dynamic_cast<C*>(p))
 		std::cout << "ptr=> objet pointed by p is 'C'" << std::endl;
 	else
-		std::cout << "no objet" << std::endl;
+		std::cout << "ptr=> no objet." << std::endl;
 }
 void identify(Base& p)
 {
@@ -80,5 +80,5 @@ void identify(Base& p)
 	{
 		(void)e;
 	}
-	std::cout << "No Object find."<< std::endl;
+	std::cout << "Ref=> No Object find."<< std::endl;
 }

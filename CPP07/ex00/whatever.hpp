@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 16:53:21 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/31 11:13:42 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/10/31 12:19:46 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/10/31 17:44:05 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_H
-	#define SERIALIZER_H
+#ifndef WHATEVER_H
+	#define WHATEVER_H
 
 #include<iostream>
-#include<stdint.h>
 
-typedef struct Data
+template<class T>
+T max(T a, T b)
 {
-	int data1;
-	int data2;
-}Data;
-
-class Serializer
+	if(a > b)
+		return(a);
+	else
+		return(b);
+}
+template<class T>
+T min(T a, T b)
 {
-	private :
-	Serializer();
-	~Serializer();
-	Serializer(const Serializer& copy);
-	Serializer& operator=(const Serializer& copy);
-		
-	public:
-		static uintptr_t serialize(Data *ptr);
-		static Data* deserialize(uintptr_t raw);
-
-
-};
-
-
-
+	if(a < b)
+		return(a);
+	else
+		return(b);
+}
+template<typename S>
+void swap(S &a, S &b)
+{
+	 S temp;
+	 temp = a;
+	 a = b;
+	 b = temp;
+}
 #endif

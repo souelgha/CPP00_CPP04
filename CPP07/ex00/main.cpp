@@ -5,30 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 17:13:19 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/10/31 11:25:33 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/10/31 17:44:55 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/10/31 17:45:39 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
 
-int main()
+#include"whatever.hpp"
+
+
+int main( void ) 
 {
-	std::cout<< "\n/***** test with random Base *****/ " << std::endl;
-	Base *p;
-	p = generate();
-	std::cout << "Base p value  : " << p << std::endl;
-	identify(p);
-	identify(*p);	
-	delete p;
-
-	std::cout<< "\n/***** test with NULL and cast fail *****/ " << std::endl;
-	p= NULL;
-	identify(p);
-	identify(*p);
-	delete p;
-
+	int a = 2;
+	int b = 3;
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	return 0;
 }
