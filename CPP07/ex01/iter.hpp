@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:19:46 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/04 13:21:37 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/11/04 13:47:45 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/11/04 17:17:12 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_H
-	#define WHATEVER_H
+#pragma once
 
 #include<iostream>
 
-template<typename T>
-T  max(T const &a, T const &b)
+template<typename I>
+void addtwo(I &i)
 {
-	if(a > b)
-		return(a);
-	else
-		return(b);
+	i+=2;
 }
-template<typename T>
-T  min (T const &a, T const &b)
-{
-	if(a < b)
-		return(a);
-	else
-		return(b);
+
+template<typename A , typename F>
+void iter(A* array, size_t b, F func){
+	for (size_t i = 0; i < b; ++i)
+		func(array[i]);
 }
-template<typename S>
-void swap(S &a, S &b)
-{
-	 S temp;
-	 temp = a;
-	 a = b;
-	 b = temp;
-}
-#endif
+
+
