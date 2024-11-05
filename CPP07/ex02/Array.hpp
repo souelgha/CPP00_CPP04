@@ -6,13 +6,15 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:02:38 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/04 18:40:56 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/11/05 18:08:52 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include<iostream>
+#include<exception>
+#include<cstdlib>
 
 template <typename T>
 class Array
@@ -22,22 +24,72 @@ class Array
 		unsigned int _size;
 	public:
 		Array(): rawArray(NULL), _size(0){}
+		~Array();
 		Array(unsigned int const n);
-		T & operator[](unsigned int position) const; // ajouter une exception si oor
-		unsigned int size() const;
-	
+		Array& operator=(const Array & copy);
+		Array(const Array & copy);
+		T & operator[](unsigned int position) const;
+		unsigned int size() const;	
 };
 /***** implementations  *****/
 template<typename T>
 Array<T>::Array(unsigned int n): _size(n)
 {
-	rawArray(new T[n]);
+	this->rawArray= new T[n];
 	for (unsigned int i = 0; i < n ; ++i)
-		rawArray[i] = T();
+		this->rawArray[i] = T();// valleur par defaut du type T
 	
 }
 template<typename T>
 unsigned int Array<T>::size() const
 {
-	return( sizeof(rawArray)/sizeof(rawArray[0]));
+	return(_size);
+}
+template<typename T>
+Array<T>::~Array()
+{
+	delete[] rawArray;
+}
+template<typename T>
+Array<T>::Array(const Array& copy): _size(copy._size)
+{
+	this->rawArray= new T[_size];
+	for(unsigned int i = 0; i <_size; i++)
+		rawArray[i] = copy.rawArray[i];
+}
+template<typename T>
+Array<T>& Array<T>::operator=(const Array<T>& copy)
+{
+	if(this != copy)
+	{
+		for(unsigned int i = 0; i <_size; i++)
+			delete [] rawArray;
+	this->_size = copy._size;
+	this->rawArray= new T[_size];
+	for(unsigned int i = 0; i <_size; i++)
+		rawArray[i] = copy.rawArray[i];
+	}	
+	return(*this);
+}
+template<typename T>
+T & Array<T>::operator[](unsigned int position) const
+{
+	if(position >= this->_size )
+		throw std::out_of_range("array index out of range");
+	else
+		return(this->rawArray[position]);
+}
+template<typename T>
+std::ostream& operator<<(std::ostream &os, const Array<T> &tab)
+{
+	
+	os << "tab[" << tab.size()<<"]=["  ;
+	for(unsigned int i = 0; i < tab.size(); i++)
+	{
+		os<< tab[i];
+		if(i < tab.size() - 1)
+			os <<", ";
+	}
+	os<<"]";
+	return(os);
 }
