@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 11:22:01 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/06 12:21:14 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/11/06 13:40:18 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void test05()
 	std::cout<<"/***** after ******/"<< std::endl;
 	std::cout << intArray<< std::endl;
 	
-	Array<int> intArray2(intArray);
+	Array<int> intArray2(intArray); 
 	std::cout<<"/***** Array2 after copy ******/"<< std::endl;
 	std::cout << intArray<< std::endl;
 	std::cout << intArray2<< std::endl;
