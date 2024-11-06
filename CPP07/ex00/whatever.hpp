@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:19:46 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/04 13:21:37 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/11/06 11:50:13 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include<iostream>
 
 template<typename T>
-T  max(T const &a, T const &b)
+const T& max(T const &a, T const &b)
 {
 	if(a > b)
 		return(a);
@@ -24,7 +24,7 @@ T  max(T const &a, T const &b)
 		return(b);
 }
 template<typename T>
-T  min (T const &a, T const &b)
+const T& min (T const &a, T const &b)
 {
 	if(a < b)
 		return(a);
