@@ -1,15 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 17:40:57 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/07 10:31:52 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/11/07 11:12:23 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/11/07 18:30:28 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 
 #include<iostream>
 #include<algorithm>
@@ -18,11 +19,18 @@
 #include<list>
 #include<iterator>
 
-template<typename T>
-typename T::const_iterator easyfind(const T &container, int value)
+class Span
 {
-	typename T::const_iterator it = std::find(container.begin(), container.end(), value);
-	if(it== container.end())
-		throw std::range_error ("No value find !");
-	return(it);	
-}
+	private:
+		unsigned int N;
+		std::vector<int> tab;
+	public:
+		Span(int size);
+		~Span();
+		
+
+		void addNumber(int num);
+		// void display() const;
+};
+// Span(const Span& copy);
+		// Span& operator=(const Span& copy);

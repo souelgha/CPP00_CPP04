@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 17:40:57 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/07 10:31:52 by sonouelg         ###   ########.fr       */
+/*   Created: 2024/11/07 16:54:01 by sonouelg          #+#    #+#             */
+/*   Updated: 2024/11/07 18:42:42 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Span.hpp"
 
-#include<iostream>
-#include<algorithm>
-#include<exception>
-#include<vector>
-#include<list>
-#include<iterator>
 
-template<typename T>
-typename T::const_iterator easyfind(const T &container, int value)
+void test02()
 {
-	typename T::const_iterator it = std::find(container.begin(), container.end(), value);
-	if(it== container.end())
-		throw std::range_error ("No value find !");
-	return(it);	
+	Span numbers(5);
+
+	numbers.addNumber(10);
+	numbers.addNumber(5);
+	// numbers.addNumber(123);
+	// numbers.addNumber(5);
+	// numbers.addNumber(40);
+}
+
+int main ()
+{
+	
+	test02();
 }
