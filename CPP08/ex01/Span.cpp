@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:02:19 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/08 17:40:03 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/11/08 17:58:13 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ const char* Span::lesThanTwoException::what() const throw()
 int Span::shortestSpan()
 {
 	if(tab.size() < 2 || tab.empty())
-	{
 		throw Span::lesThanTwoException();
-		// return(0);
-	}
 	int num = abs(tab[0] - tab[1]);
 	for (size_t i = 0; i < N - 1; ++i)
 	{
@@ -60,10 +57,7 @@ int Span::shortestSpan()
 int Span::longestSpan()
 {
 	if(tab.size() < 2 || tab.empty())
-	{
 		throw Span::lesThanTwoException();
-		// return;
-	}
 	int num = abs(tab[0] - tab[1]);
 	for (size_t i = 0; i < N - 1; ++i)
 	{
@@ -75,3 +69,13 @@ int Span::longestSpan()
 	}
 	return(num);
 }
+//version rnge of iterator.
+// void Span::addNumbers(std::vector<int>::iterator start, std::vector<int>::iterator end) {
+//     // Vérifie si l'ajout de la plage d'itérateurs dépasserait la capacité N
+//     if (tab.size() + std::distance(start, end) > N) {
+//         throw std::overflow_error("Erreur : ajout dépassant la capacité maximale du vector.");
+//     }
+
+//     // Ajoute les éléments de la plage au vector
+//     tab.insert(tab.end(), start, end);
+// }
