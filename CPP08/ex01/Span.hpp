@@ -6,7 +6,7 @@
 /*   By: sonouelg <sonouelg@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 11:12:23 by sonouelg          #+#    #+#             */
-/*   Updated: 2024/11/07 18:30:28 by sonouelg         ###   ########.fr       */
+/*   Updated: 2024/11/08 16:39:09 by sonouelg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include<vector>
 #include<list>
 #include<iterator>
+#include<stdlib.h>
 
 class Span
 {
@@ -27,10 +28,18 @@ class Span
 	public:
 		Span(int size);
 		~Span();
-		
-
+		Span(const Span& copy);
+		Span& operator=(const Span& copy);
 		void addNumber(int num);
-		// void display() const;
+		void display() const;
+
+		int shortestSpan();
+		int longestSpan();
+	
+		class lesThanTwoException : public std::exception 
+		{
+            public:
+               const char *what() const throw();
+		};
+
 };
-// Span(const Span& copy);
-		// Span& operator=(const Span& copy);
