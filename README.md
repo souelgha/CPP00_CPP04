@@ -3,6 +3,9 @@ each module is an introduction of specific funstions / topics of C++ language
 
 ## CPP Module 00
 ![CPP Module 01 Score](/grade.svg)
+
+**Done with bonuses**
+
 *Namespaces, classes, member functions, stdio streams,
 initialization lists, static, const, and some other basic
 stuf*
